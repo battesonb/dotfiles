@@ -1,7 +1,7 @@
 function git_status() {
     local git_branch=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
     local git_status=$(git status 2> /dev/null)
-    local git_root=$(basename `git rev-parse --show-toplevel`)
+    local git_root=$(basename `git rev-parse --show-toplevel 2> /dev/null` 2> /dev/null)
 
     local git_color="green"
 
