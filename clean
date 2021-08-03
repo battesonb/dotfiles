@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
-cd ~/dotfiles
-for folder in $(ls -d */)
+cd ${0:a:h}
+for folder in $(ls -d */ 2> /dev/null)
 do
-    echo "Removing symlink for $folder"
+    echo "Unstowing $folder"
     stow -D $folder
 done
 cd -

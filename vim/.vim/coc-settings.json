@@ -1,0 +1,23 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+  ],
+  "eslint.autoFixOnSave": true,
+  "languageserver": {
+    "sql": {
+      "command": "sql-language-server",
+      "args": [
+        "up",
+        "--method",
+        "stdio"
+      ],
+      "filetypes": [
+        "sql",
+        "mysql"
+      ]
+    }
+  },
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true,
+  "solargraph.hover": true
+}
