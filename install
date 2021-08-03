@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+cd ${0:a:h}
+for folder in $(ls -d */)
+do
+    echo "Stowing $folder"
+    stow -D $folder
+    stow $folder
+done
+cd -
