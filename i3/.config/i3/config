@@ -179,7 +179,7 @@ bar {
 }
 
 # Set background with feh
-~/.fehbg &
+exec ~/.fehbg &
 
 # Orient screens
-xrandr --output DP-0 --pos 0x410 --output DP-4 --pos 1920x0 --rotate left
+exec xrandr --output DP-0 --pos 0x410 --output DP-4 --pos 1920x0 --rotate left
