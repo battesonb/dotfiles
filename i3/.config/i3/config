@@ -143,7 +143,15 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+mode "exit: [l]ogout, [r]eboot, [s]hutdown, loc[k]" {
+    bindsym l exec i3-msg exit
+    bindsym r exec systemctl reboot
+    bindsym s exec systemctl shutdown
+    bindsym k exec i3lock; mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown, loc[k]"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -179,7 +187,7 @@ bar {
 }
 
 # Set background with feh
-exec ~/.fehbg &
+exec [ -f ~/.fehbg ] && ~/.fehbg &
 
 # Orient screens
 exec xrandr --output DP-0 --pos 0x410 --output DP-4 --pos 1920x0 --rotate left
