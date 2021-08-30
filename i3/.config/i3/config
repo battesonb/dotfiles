@@ -145,8 +145,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 mode "exit: [l]ogout, [r]eboot, [s]hutdown, loc[k]" {
     bindsym l exec i3-msg exit
-    bindsym r exec systemctl reboot
-    bindsym s exec systemctl shutdown
+    bindsym r exec reboot
+    bindsym s exec shutdown now
     bindsym k exec i3lock; mode "default"
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -190,4 +190,4 @@ bar {
 exec [ -f ~/.fehbg ] && ~/.fehbg &
 
 # Orient screens
-exec xrandr --output DP-0 --pos 0x410 --output DP-4 --pos 1920x0 --rotate left
+exec xrandr --output DP-2 --pos 0x410 --output DP-0 --pos 1920x0 --rotate left
