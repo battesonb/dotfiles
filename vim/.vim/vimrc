@@ -22,6 +22,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
+Plug 'szw/vim-maximizer'
+Plug 'puremourning/vimspector'
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
     Plug 'nvim-treesitter/playground'
@@ -234,6 +236,33 @@ let g:clang_library_path="/usr/lib/llvm-10/lib"
 " }}}
 " rust.vim {{{
 let g:rustfmt_autosave=1
+" }}}
+" vim-maximizer {{{
+nnoremap <leader>m :MaximizerToggle!<CR>
+" }}}
+" vimspector {{{
+let g:vimspector_install_gadgets = [ 'vscode-cpptools', 'vscode-java-debug', 'debugpy', 'vscode-bash-debug', 'vscode-node-debug2' ]
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
+
+nnoremap <leader>dcb :call vimspector#CleanLineBreakpoint()<CR>
+
+nmap <leader>dl <Plug>VimspectorStepInto
+nmap <leader>dj <Plug>VimspectorStepOver
+nmap <leader>dk <Plug>VimspectorStepOut
+nmap <leader>d_ <Plug>VimspectorRestart
+nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+
+nmap <leader>drc <Plug>VimspectorRunToCursor
+nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+nmap <leader>di <Plug>VimspectorBalloonEval
 " }}}
 " Meta Configuration {{{
 set modeline
