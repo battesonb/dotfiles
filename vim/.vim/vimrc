@@ -24,6 +24,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'szw/vim-maximizer'
 Plug 'puremourning/vimspector'
+Plug 'honza/vim-snippets'
+Plug 'SirVir/ultisnips'
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
     Plug 'nvim-treesitter/playground'
@@ -170,6 +172,22 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 " coc {{{
+" Global extensions across devices
+let g:coc_global_extensions = [
+  \'coc-css'
+  \'coc-eslint'
+  \'coc-html'
+  \'coc-json'
+  \'coc-markdownlint'
+  \'coc-pairs'
+  \'coc-pyright'
+  \'coc-rust-analyzer'
+  \'coc-snippets'
+  \'coc-solargraph'
+  \'coc-toml'
+  \'coc-tsserver'
+  \]
+
 " Use <c-space> to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -263,6 +281,12 @@ nmap <leader>drc <Plug>VimspectorRunToCursor
 nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
 nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
 nmap <leader>di <Plug>VimspectorBalloonEval
+" }}}
+" Ultisnips {{{
+let g:UltisnipsExpandTrigger="<nop>"
+let g:UltisnipsJumpForwardTrigger="<C-j>"
+let g:UltisnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsEditSplit="vertical"
 " }}}
 " Meta Configuration {{{
 set modeline
