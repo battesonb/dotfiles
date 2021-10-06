@@ -174,17 +174,17 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " coc {{{
 " Global extensions across devices
 let g:coc_global_extensions = [
-  \'coc-css'
-  \'coc-eslint'
-  \'coc-html'
-  \'coc-json'
-  \'coc-markdownlint'
-  \'coc-pairs'
-  \'coc-pyright'
-  \'coc-rust-analyzer'
-  \'coc-snippets'
-  \'coc-solargraph'
-  \'coc-toml'
+  \'coc-css',
+  \'coc-eslint',
+  \'coc-html',
+  \'coc-json',
+  \'coc-markdownlint',
+  \'coc-pairs',
+  \'coc-pyright',
+  \'coc-rust-analyzer',
+  \'coc-snippets',
+  \'coc-solargraph',
+  \'coc-toml',
   \'coc-tsserver'
   \]
 
@@ -293,3 +293,4 @@ set modeline
 set modelines=2
 " vim:foldmethod=marker:foldlevel=0
 " }}}
+
