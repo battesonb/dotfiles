@@ -38,9 +38,9 @@
 *.color15: #fdf6e3
 
 !! URxvt Appearance
-!! URxvt.font: xft:bitstream vera sans mono:size=16:antialias=true
-!! URxvt.boldFont: xft:bitstream vera sans mono:bold:size=16:antialias=true
-URxvt.font: xft:JetBrainsMono Nerd Font:style=Regular:size=16
+!! URxvt.font: xft:bitstream vera sans mono:size=15:antialias=true
+!! URxvt.boldFont: xft:bitstream vera sans mono:bold:size=15:antialias=true
+URxvt.font: xft:JetBrainsMono Nerd Font:style=Regular:size=15
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -65,6 +65,8 @@ URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 
 !! Copy Paste & Other Extensions
+URxvt.keysym.Control-Shift-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-V: eval:paste_clipboard
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.urlLauncher: firefox
