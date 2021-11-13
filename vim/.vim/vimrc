@@ -33,7 +33,8 @@ end
 call plug#end()
 " }}}
 " Shortcuts {{{
-let mapleader=","       " leader is comma
+nnoremap <space> <nop>
+let mapleader=" "
 " }}}
 " Behavior {{{
 set bs=2                  " enable expected backspace behaviors
@@ -83,7 +84,7 @@ set foldmethod=indent   " fold based on indent level
 " Formatting {{{
 set encoding=UTF-8      " use utf-8 encoding
 set tw=80               " set text width to 80 characters
-set guifont=JetBrains_Mono:h12:cANSI:qDRAFT
+set guifont=JetBrains_Mono:h17:cANSI:qDRAFT
 " }}}
 " Searching {{{
 set incsearch           " search as characters are entered
