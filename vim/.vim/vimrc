@@ -26,6 +26,7 @@ Plug 'szw/vim-maximizer'
 Plug 'puremourning/vimspector'
 Plug 'honza/vim-snippets'
 Plug 'SirVir/ultisnips'
+Plug 'morhetz/gruvbox'
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
     Plug 'nvim-treesitter/playground'
@@ -70,10 +71,12 @@ nnoremap <leader>k :m .-2<CR>==
 " }}}
 " Colors {{{
 syntax enable           " enable syntax processing
-colorscheme molokai     " set theme
-if has("win64") || has("win32") || has("win16")
-  set termguicolors
-endif
+" }}}
+" Theme {{{
+let g:gruvbox_italic=1  " enable italics
+set background=dark     " force dark theme
+colorscheme gruvbox     " set theme
+set termguicolors
 " }}}
 " Folding {{{
 set foldenable          " enable folding
