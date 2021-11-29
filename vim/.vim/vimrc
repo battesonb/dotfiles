@@ -76,7 +76,9 @@ syntax enable           " enable syntax processing
 let g:gruvbox_italic=1  " enable italics
 set background=dark     " force dark theme
 colorscheme gruvbox     " set theme
-set termguicolors
+if !has('macunix')
+  set termguicolors
+endif
 " }}}
 " Folding {{{
 set foldenable          " enable folding
@@ -295,6 +297,6 @@ let g:UltiSnipsEditSplit="vertical"
 " Meta Configuration {{{
 set modeline
 set modelines=2
+" vim:foldmarker={{{,}}}
 " vim:foldmethod=marker:foldlevel=0
 " }}}
-
