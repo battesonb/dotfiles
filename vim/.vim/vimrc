@@ -15,7 +15,6 @@ endif
 call plug#begin(vimfiles.'/bundle')
 Plug 'xavierd/clang_complete'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
@@ -28,8 +27,13 @@ Plug 'honza/vim-snippets'
 Plug 'SirVir/ultisnips'
 Plug 'morhetz/gruvbox'
 if has('nvim')
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
-    Plug 'nvim-treesitter/playground'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+  Plug 'nvim-treesitter/playground'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'ThePrimeagen/refactoring.nvim'
+else
+  Plug 'ctrlpvim/ctrlp.vim'
 end
 call plug#end()
 " }}}
