@@ -24,7 +24,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'szw/vim-maximizer'
 Plug 'puremourning/vimspector'
 Plug 'honza/vim-snippets'
-Plug 'SirVir/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'morhetz/gruvbox'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
@@ -68,8 +68,8 @@ inoremap ? ?<C-g>u
 " Add movable selections
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> :m .+1<CR>==
-inoremap <C-k> :m .-2<CR>==
+" inoremap <C-j> :m .+1<CR>==
+" inoremap <C-k> :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
 " }}}
@@ -97,10 +97,8 @@ set guifont=JetBrains_Mono:h17:cANSI:qDRAFT
 " }}}
 " Searching {{{
 set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
+set nohlsearch          " turn off search higlights
 set ic                  " turn on ignore case mode
-" turn off search highlight
-nnoremap <Leader><space> :nohlsearch<CR>
 " }}}
 " Spacing {{{
 set tabstop=2           " number of visual spaces per tab
@@ -293,9 +291,9 @@ nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
 nmap <leader>di <Plug>VimspectorBalloonEval
 " }}}
 " Ultisnips {{{
-let g:UltisnipsExpandTrigger="<nop>"
-let g:UltisnipsJumpForwardTrigger="<C-j>"
-let g:UltisnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsExpandTrigger="<nop>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 " Meta Configuration {{{
