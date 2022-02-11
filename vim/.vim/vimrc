@@ -50,6 +50,14 @@ filetype plugin indent on " keep indent based on file-type
 if has('mouse')
   set mouse=a
 endif
+
+" custom ignore list for expanding wildcards
+if has('win32')
+  set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*\\node_modules\\*
+else
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+endif
+
 "}}}
 " Custom behavior {{{
 " Keep searches centered
