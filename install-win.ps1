@@ -1,5 +1,6 @@
 $directories = @{
     "vim/.vim" = "$Env:USERPROFILE\vimfiles";
+    "intellij/.ideavimrc" = "$Env:USERPROFILE\.ideavimrc";
     "nvim/.config/nvim" = "$Env:LOCALAPPDATA\nvim";
 }
 

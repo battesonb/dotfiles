@@ -1,0 +1,14 @@
+nnoremap <space> <nop>
+let mapleader=" "
+
+set relativenumber number
+
+" Shortcuts for IntelliJ actions
+nmap <silent> gd :action GotoDeclaration<CR>
+nmap <silent> gy :action GotoTypeDeclaration<CR>
+nmap <silent> gi :action GotoImplementation<CR>
+nmap <silent> gr :action FindUsages<CR>
+nmap <silent> [g :action GotoPreviousError<CR>
+nmap <silent> ]g :action GotoNextError<CR>
+nmap <leader> rn :action RenameElement<CR>
+
