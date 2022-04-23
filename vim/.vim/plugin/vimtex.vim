@@ -1,5 +1,13 @@
 let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
+if has('win32')
+    let g:vimtex_view_method='general'
+else
+    if system("uname -s") == "Darwin"
+        let g:vimtex_view_method='skim'
+    else
+        let g:vimtex_view_method='zathura'
+    endif
+endif
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
