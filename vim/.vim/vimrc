@@ -64,6 +64,13 @@ set spell
 set spelllang=en_us,en_gb
 inoremap <C-l> <C-g>u<Esc>[s1z=`]a<C-g>u
 
+" OS-specific overrides
+if has('win32') || has('win64')
+  " Disable suspend shortcut
+  nmap<C-z> <Esc>:echoerr 'Suspend is not enabled on Windows'<CR>
+  vmap<C-z> <Esc>:echoerr 'Suspend is not enabled on Windows'<CR>
+endif
+
 "}}}
 " Custom behavior {{{
 " Keep searches centered
