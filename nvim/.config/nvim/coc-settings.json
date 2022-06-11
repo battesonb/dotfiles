@@ -5,5 +5,13 @@
     "python.autoComplete.extraPaths": [
         "/Applications/Talon.app/Contents/Resources/python/lib/python3.9/site-packages/talon/"
     ],
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.inlayHints.typeHints": true,
+    "rust-analyzer.inlayHints.chainingHints": true,
+    "rust-analyzer.lens.enable": true,
+    "rust-analyzer.lens.run": true,
+    "rust-analyzer.lens.implementations": true,
+    "rust-analyzer.debug.runtime": "vimspector",
+    "rust-analyzer.debug.vimspector.configuration.name": "Rust - lldb"
 }
