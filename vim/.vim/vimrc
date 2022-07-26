@@ -16,7 +16,6 @@ call plug#begin(vimfiles.'/bundle')
 Plug 'xavierd/clang_complete'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
