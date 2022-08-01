@@ -28,6 +28,7 @@ Plug 'SirVer/ultisnips'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'dijkstracula/vim-plang'
+Plug 'godlygeek/tabular'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/playground'
