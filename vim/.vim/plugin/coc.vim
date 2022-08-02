@@ -7,6 +7,7 @@ let g:coc_global_extensions = [
   \'coc-markdownlint',
   \'coc-pairs',
   \'coc-pyright',
+  \'coc-r-lsp',
   \'coc-rust-analyzer',
   \'coc-snippets',
   \'coc-solargraph',
