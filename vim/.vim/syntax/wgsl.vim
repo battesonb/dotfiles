@@ -1,5 +1,6 @@
 " Vim syntax file
 " Language: WebGPU Shader Language
+" Source: https://www.w3.org/TR/WGSL/
 
 if exists("b:current_syntax")
     finish
@@ -65,28 +66,42 @@ hi def link comment          Comment
 hi def link builtinFunctions Special
 
 " Pre-processors
-syn match preProcStart '\[\[' nextgroup=preProcKeyword,preProcFunction,preProcEnd
-syn keyword preProcKeyword nextgroup=preProcEnd contained
-  \ block
-syn match preProcEnd '\]\]' contained
+syn match preProcStart '@' nextgroup=preProcFunction
 
+" Attributes
 syn keyword preProcFunction nextgroup=preProcFunctionStart contained
+  \ align
   \ binding
   \ builtin
+  \ compute
+  \ const
+  \ fragment
   \ group
+  \ id
+  \ interpolate
+  \ invariant
   \ location
-  \ stage
-
-syn match preProcFunctionSeparator ', *' nextgroup=preProcFunction contained
+  \ size
+  \ vertex
+  \ workgroup_size
 
 syn match preProcFunctionStart '(' nextgroup=preProcFunctionArgument,preProcFunctionNumericArgument contained
-syn match preProcFunctionEnd ')' nextgroup=preProcFunctionSeparator,preProcEnd contained
+syn match preProcFunctionEnd ')' contained
 
 syn match preProcFunctionNumericArgument '\d*' nextgroup=preProcFunctionEnd contained
+" Built-ins
 syn keyword preProcFunctionArgument nextgroup=preProcFunctionEnd contained
-  \ fragment
   \ position
-  \ vertex
+  \ vertex_index
+  \ instance_index
+  \ front_facing
+  \ frag_depth
+  \ local_invocation_id
+  \ global_invocation_id
+  \ workgroup_id
+  \ num_workgroups
+  \ sample_index
+  \ sample_mask
 
 hi def link preProcStart             PreProc
 hi def link preProcEnd               PreProc
