@@ -1,6 +1,14 @@
 local telescope = require("telescope")
 local refactoring = require('refactoring')
 
+telescope.setup({
+	pickers = {
+		find_files = {
+			hidden = true
+		}
+	}
+})
+
 refactoring.setup({})
 
 telescope.load_extension("refactoring")
