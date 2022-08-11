@@ -36,6 +36,7 @@ if has('nvim')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'ThePrimeagen/refactoring.nvim'
+  Plug 'neovim/nvim-lspconfig'
 else
   Plug 'ctrlpvim/ctrlp.vim'
 end
@@ -73,6 +74,9 @@ if has('win32') || has('win64')
   nmap<C-z> <Esc>:echoerr 'Suspend is not enabled on Windows'<CR>
   vmap<C-z> <Esc>:echoerr 'Suspend is not enabled on Windows'<CR>
 endif
+
+" Omnifunc settings
+set completeopt-=preview      " disable scratch buffer
 
 "}}}
 " Custom behavior {{{
