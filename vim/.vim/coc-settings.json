@@ -1,7 +1,8 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-  ],
+  "coc.preferences.formatOnSaveFiletypes": [],
   "eslint.autoFixOnSave": true,
+  "eslint.enable": true,
+  "eslint.format.enable": true,
   "languageserver": {
     "sql": {
       "command": "sql-language-server",
@@ -16,6 +17,17 @@
       ]
     }
   },
+  "python.autoComplete.extraPaths": [
+    "/Applications/Talon.app/Contents/Resources/python/lib/python3.9/site-packages/talon/"
+  ],
+  "rust-analyzer.diagnostics.enable": true,
+  "rust-analyzer.inlayHints.typeHints": true,
+  "rust-analyzer.inlayHints.chainingHints": true,
+  "rust-analyzer.lens.enable": true,
+  "rust-analyzer.lens.run": true,
+  "rust-analyzer.lens.implementations": true,
+  "rust-analyzer.debug.runtime": "vimspector",
+  "rust-analyzer.debug.vimspector.configuration.name": "Rust - lldb",
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
