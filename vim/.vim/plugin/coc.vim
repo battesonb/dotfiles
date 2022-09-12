@@ -16,6 +16,8 @@ let g:coc_global_extensions = [
 
 " Use <c-space> to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <nul> coc#refresh()
+inoremap <silent><expr> <c-k> coc#refresh()
 
 " code navigation
 nmap <silent> gd <Plug>(coc-definition)
