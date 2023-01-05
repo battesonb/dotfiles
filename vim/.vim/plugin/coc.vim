@@ -4,7 +4,9 @@ let g:coc_global_extensions = [
   \'coc-css',
   \'coc-eslint',
   \'coc-html',
+  \'coc-java',
   \'coc-json',
+  \'coc-kotlin',
   \'coc-markdownlint',
   \'coc-pyright',
   \'coc-r-lsp',
@@ -12,7 +14,9 @@ let g:coc_global_extensions = [
   \'coc-snippets',
   \'coc-solargraph',
   \'coc-toml',
-  \'coc-tsserver'
+  \'coc-tsserver',
+  \'coc-vimtex',
+  \'coc-yaml',
   \]
 
 " Use <c-space> to trigger completion
