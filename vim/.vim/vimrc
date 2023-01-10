@@ -31,7 +31,8 @@ Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
-  Plug 'nvim-treesitter/playground'
+  Plug 'nvim-treesitter/nvim-treesitter-context', {'do': 'TSUpdate'}
+  Plug 'nvim-treesitter/playground', {'do': 'TSUpdate'}
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'ThePrimeagen/refactoring.nvim'
