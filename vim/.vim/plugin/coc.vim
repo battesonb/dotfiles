@@ -19,7 +19,7 @@ let g:coc_global_extensions = [
   \'coc-yaml',
   \]
 
-let g:coc_global_config="~/.vim/coc-settings.json"
+let g:coc_config_home="~/dotfiles/vim/.vim/"
 
 " Use <c-space> to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
