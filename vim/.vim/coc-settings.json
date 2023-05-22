@@ -20,6 +20,10 @@
         "sql",
         "mysql"
       ]
+    },
+    "wgsl": {
+      "command": "wgsl_analyzer",
+      "filetypes": ["wgsl"]
     }
   },
   "python.autoComplete.extraPaths": [
