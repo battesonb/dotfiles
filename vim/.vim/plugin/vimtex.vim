@@ -2,7 +2,7 @@ let g:tex_flavor='latex'
 if has('win32')
     let g:vimtex_view_method='general'
 else
-    if system("uname -s") == "Darwin"
+    if system("uname -s") =~ "Darwin"
         let g:vimtex_view_method='skim'
     else
         let g:vimtex_view_method='zathura'
