@@ -1,9 +1,8 @@
 local configs = require("nvim-treesitter.configs")
-local List = require("plenary.collections.py_list")
 
-local skipHighlights = { "wgsl" }
+local languages = { "smithy", "wgsl" }
 
-function hasValue(table, value)
+local function hasValue(table, value)
 	for _, v in ipairs(table) do
 		if v == value then
 			return true
@@ -24,7 +23,7 @@ configs.setup({
 		enable = true,
 		disable = function(lang, bufnr)
 			-- To support running both the Neovim LSP and coc.nvim.
-			return not hasValue(skipHighlights, lang)
+			return not hasValue(languages, lang)
 		end
 	}
 })

@@ -31,3 +31,28 @@ end
 lspconfig.wgsl_analyzer.setup({
   on_attach = on_attach
 })
+
+if not configs.smithy_ls then
+  configs.smithy_ls = {
+    default_config = {
+      cmd = { vim.fn.expand("$HOME") .. "/smithy/bin/smithy-language-server", "0" },
+      filetypes = { "smithy" },
+      root_dir = lspconfig.util.root_pattern("smithy-build.json", "build.gradle", "build.gradle.kts", "build.xml", ".git"),
+      single_file_support = true,
+      message_level = vim.lsp.protocol.MessageType.Log,
+      init_options = {
+        statusBarProvider = "show-message",
+        isHttpEnabled = true,
+        compilerOptions = {
+          snippetAutoIndent = false,
+        },
+      },
+      settings = {},
+    }
+  }
+end
+
+lspconfig.smithy_ls.setup({
+  on_attach = on_attach
+})
+
