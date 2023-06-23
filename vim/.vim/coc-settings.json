@@ -4,10 +4,10 @@
   "eslint.enable": true,
   "eslint.format.enable": true,
   "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-      "filetypes": ["c", "cc", "cpp", "c++", "hpp", "h"]
+    "ocaml-lsp": {
+      "command": "opam",
+      "args": ["exec", "--", "ocamllsp"],
+      "filetypes": ["ocaml", "reason"]
     },
     "sql": {
       "command": "sql-language-server",
