@@ -3,6 +3,7 @@ let g:coc_global_extensions = [
   \'coc-clangd',
   \'coc-css',
   \'coc-eslint',
+  \'coc-go',
   \'coc-html',
   \'coc-java',
   \'coc-json',
