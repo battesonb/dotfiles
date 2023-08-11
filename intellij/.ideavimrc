@@ -2,13 +2,27 @@ nnoremap <space> <nop>
 let mapleader=" "
 
 set relativenumber number
+set idearefactormode=keep
+
+Plug 'tpope/vim-surround'
 
 " Shortcuts for IntelliJ actions
-nmap <silent> gd :action GotoDeclaration<CR>
-nmap <silent> gy :action GotoTypeDeclaration<CR>
-nmap <silent> gi :action GotoImplementation<CR>
-nmap <silent> gr :action FindUsages<CR>
-nmap <silent> [g :action GotoPreviousError<CR>
-nmap <silent> ]g :action GotoNextError<CR>
-nmap <leader> rn :action RenameElement<CR>
+nnoremap <silent> gd :action GotoDeclaration<CR>
+nnoremap <silent> gy :action GotoTypeDeclaration<CR>
+nnoremap <silent> gi :action GotoImplementation<CR>
+nnoremap <silent> gr :action FindUsages<CR>
+nnoremap <silent> [g :action GotoPreviousError<CR>
+nnoremap <silent> ]g :action GotoNextError<CR>
+# Consider Switcher and SearchEverywhere
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+# Consider Refactorings.QuickListPopupAction
+nnoremap <leader>ca :action RefactoringMenu<CR>
+# Show any documentation (not just Java)
+nnoremap <silent> K :action QuickJavaDoc<CR>
+command! -nargs=0 Format :action ReformatCode
 
+# Folds
+nnoremap zC :action CollapseRegionRecursively<CR>
+nnoremap zO :action ExpandRegionRecursively<CR>
