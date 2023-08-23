@@ -35,7 +35,6 @@ if has('nvim')
   Plug 'nvim-treesitter/playground', {'do': 'TSUpdate'}
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'ThePrimeagen/refactoring.nvim'
   Plug 'neovim/nvim-lspconfig'
 else
   Plug 'ctrlpvim/ctrlp.vim'
