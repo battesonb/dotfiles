@@ -1,6 +1,6 @@
 case `uname` in
   Darwin)
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-13.jdk/Contents/Home/
+    export JAVA_HOME=/opt/homebrew/opt/openjdk@17/
   ;;
   Linux)
     export JAVA_HOME=/usr/lib/jvm/java-openjdk/

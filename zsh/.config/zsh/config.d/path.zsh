@@ -8,6 +8,11 @@ export PATH="/usr/lib/dart/bin:$PATH"
 # Rust-related paths
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# rbenv
+if command -v rbenv; then
+  eval "$(rbenv init - zsh)"
+fi
+
 # Prepare nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
