@@ -1,6 +1,7 @@
 # Responsible for amending the environment path variable with required paths
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # Dart-related paths
 export PATH="/usr/lib/dart/bin:$PATH"

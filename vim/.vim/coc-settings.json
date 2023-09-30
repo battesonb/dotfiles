@@ -40,5 +40,7 @@
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
   "solargraph.hover": true,
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "zig.enabled": true,
+  "zig.path": "zls"
 }
