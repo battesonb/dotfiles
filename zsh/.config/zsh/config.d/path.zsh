@@ -9,6 +9,9 @@ export PATH="/usr/lib/dart/bin:$PATH"
 # Rust-related paths
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Haskell (ghcup)
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+
 # rbenv
 if command -v rbenv; then
   eval "$(rbenv init - zsh)"
