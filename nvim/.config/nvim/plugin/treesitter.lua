@@ -1,4 +1,9 @@
 local configs = require("nvim-treesitter.configs")
+local vim = vim
+local opt = vim.opt
+
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 local languages = { "smithy", "wgsl" }
 
