@@ -21,5 +21,6 @@ function git_status() {
 }
 
 setopt PROMPT_SUBST
-RPROMPT='$(git_status)'
-PROMPT='%(?.%F{green}✓.%F{red}[%?])%f %F{cyan}%1~%f $ '
+RPROMPT=''
+PROMPT='%(?.%F{green}✓.%F{red}[%?])%f %F{cyan}%~%f $(git_status)
+λ '
