@@ -128,6 +128,7 @@ set guifont=JetBrains_Mono:h17:cANSI:qDRAFT
 set incsearch           " search as characters are entered
 set nohlsearch          " turn off search highlights
 set ic                  " turn on ignore case mode
+set smartcase           " ignore ic if there is a capital letter in the search
 " }}}
 " Spacing {{{
 set tabstop=2           " number of visual spaces per tab
