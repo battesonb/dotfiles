@@ -18,6 +18,7 @@ let g:coc_global_extensions = [
   \'coc-tsserver',
   \'coc-vimtex',
   \'coc-yaml',
+  \'coc-zig',
   \]
 
 let g:coc_config_home="~/dotfiles/vim/.vim/"

@@ -17,7 +17,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'szw/vim-maximizer'
@@ -29,6 +31,7 @@ Plug 'lervag/vimtex'
 Plug 'dijkstracula/vim-plang'
 Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'HiPhish/jinja.vim'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-context', {'do': 'TSUpdate'}
