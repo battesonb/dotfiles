@@ -82,6 +82,11 @@ set completeopt-=preview      " disable scratch buffer
 
 "}}}
 " Custom behavior {{{
+" Allow for custom overrides for individual devices
+if filereadable(expand("~/.vim_overrides"))
+  source ~/.vim_overrides
+endif
+
 " Keep searches centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
