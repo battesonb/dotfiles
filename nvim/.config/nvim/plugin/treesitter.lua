@@ -5,7 +5,7 @@ local opt = vim.opt
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-local languages = { "smithy", "wgsl" }
+local languages = { "smithy", "vim", "wgsl" }
 
 local function hasValue(table, value)
 	for _, v in ipairs(table) do
