@@ -1,5 +1,4 @@
 local configs = require("nvim-treesitter.configs")
-local vim = vim
 local opt = vim.opt
 
 opt.foldmethod = "expr"
@@ -23,10 +22,10 @@ configs.setup({
 	},
 	sync_install = true,
 	auto_install = false,
-	ignore_install = { "vim" },
+	ignore_install = { "lua", "vim" },
 	highlight = {
 		enable = true,
-		disable = function(lang, bufnr)
+		disable = function(lang)
 			-- To support running both the Neovim LSP and coc.nvim.
 			return not hasValue(languages, lang)
 		end

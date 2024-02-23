@@ -6,7 +6,7 @@ local on_attach = function(client, bufnr)
 
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, bufopts)
-  vim.keymap.set('n', ']g', vim.diagnostic.goto_prev, bufopts)
+  vim.keymap.set('n', ']g', vim.diagnostic.goto_next, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
@@ -59,4 +59,27 @@ lspconfig.smithy_ls.setup({
 lspconfig.hls.setup({
   on_attach = on_attach,
   filetypes = { "haskell", "hs", "lhaskell", "cabal" }
+})
+
+lspconfig.lua_ls.setup({
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        globals = {
+          "vim",
+          "require",
+        },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("lua", true)
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 })
