@@ -56,7 +56,7 @@ nmap <leader>rn <Plug>(coc-rename)
 " Apply code action (imports)
 xmap <leader>ca <Plug>(coc-codeaction-selected)
 nmap <leader>ca <Plug>(coc-codeaction-selected)
-nmap <leader>cs  <Plug>(coc-codeaction-source)
+nmap <leader>cs <Plug>(coc-codeaction-source)
 
 " Show code refactoring options
 nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)

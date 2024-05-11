@@ -148,7 +148,6 @@ set shiftwidth=2        " shift width is the same as our tab size
 set number              " show line number for current line
 set relativenumber      " show relative line numbers
 set showcmd             " show last command in status bar
-" set cursorline          " highlight current line
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when there is a visual change
 set showmatch           " highlight matching [{()}]
