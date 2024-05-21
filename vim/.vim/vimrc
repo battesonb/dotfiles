@@ -77,6 +77,10 @@ if has('win32') || has('win64')
   vmap<C-z> <Esc>:echoerr 'Suspend is not enabled on Windows'<CR>
 endif
 
+" Make some invisible characters visible
+set list
+set listchars=tab:▸·,trail:·,eol:↩
+
 " Omnifunc settings
 set completeopt-=preview      " disable scratch buffer
 
@@ -93,6 +97,12 @@ nnoremap N Nzzzv
 
 " Keep cursor stationary for line joins
 nnoremap J mzJ`z
+
+" Resize splits
+nmap <M-,> <C-w>5<
+nmap <M-.> <C-w>5>
+nmap <M-s> <C-w>-
+nmap <M-t> <C-w>+
 
 " Add custom undo breakpoints
 inoremap , ,<C-g>u

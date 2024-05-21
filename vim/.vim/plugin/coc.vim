@@ -74,3 +74,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+
+" Mappings for CocList
+nmap <leader>cc :<C-u>CocList commands<cr>
+nmap <leader>co :<C-u>CocList outline<cr>
