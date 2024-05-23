@@ -13,25 +13,23 @@ endif
 " }}}
 " Plugins {{{
 call plug#begin(vimfiles.'/bundle')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'itchyny/lightline.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'szw/vim-maximizer'
-Plug 'puremourning/vimspector'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'morhetz/gruvbox'
-Plug 'lervag/vimtex'
-Plug 'dijkstracula/vim-plang'
-Plug 'godlygeek/tabular'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'HiPhish/jinja.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code completion; easiest for me so far
+Plug 'itchyny/lightline.vim'                    " Status line
+Plug 'ryanoasis/vim-devicons'                   " Special icons
+Plug 'tpope/vim-abolish'                        " Subvert and Coercion are nice
+Plug 'tpope/vim-fugitive'                       " Git integration
+Plug 'tpope/vim-repeat'                         " Repeat support for plugins via `.`
+Plug 'tpope/vim-sleuth'                         " Autoconfigure shiftwidth and expandtab
+Plug 'tpope/vim-surround'                       " Text object support for surrounding text
+Plug 'puremourning/vimspector'                  " Debugging -- not well-configured
+Plug 'SirVer/ultisnips'                         " Snippet completions
+Plug 'honza/vim-snippets'                       " Good default snippets
+Plug 'morhetz/gruvbox'                          " Theme
+Plug 'lervag/vimtex'                            " Vim LaTeX support
+Plug 'dijkstracula/vim-plang'                   " Vim P lang support
+Plug 'godlygeek/tabular'                        " Alignment
+Plug 'dhruvasagar/vim-table-mode'               " Vim markdown tables with custom mode
+Plug 'HiPhish/jinja.vim'                        " Jinja templating support
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-context', {'do': 'TSUpdate'}
