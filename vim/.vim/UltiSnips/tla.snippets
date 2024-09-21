@@ -1,0 +1,262 @@
+global !p
+import vim
+
+side_length = 16
+
+def first_line_length():
+	result = vim.eval("len(getline(1,'$')[0])")
+	return int(result)
+endglobal
+
+snippet MODULE "MODULE"
+`!p snip.rv = '-' * side_length` MODULE ${1:name} `!p snip.rv = '-' * side_length`
+$0
+`!p snip.rv = '=' * (2 * side_length + len("MODULE") + len(t[1]) + 3)`
+endsnippet
+
+snippet rule "------"
+`!p snip.rv = '-' * first_line_length()`
+endsnippet
+
+snippet ASSSUME "ASSSUME"
+ASSSUME ${0:expression}
+endsnippet
+
+snippet CONSTANT "CONSTANT"
+CONSTANT ${1:name}
+endsnippet
+
+snippet CHOOSE "CHOOSE"
+CHOOSE ${1:expression}
+endsnippet
+
+snippet VAR "VARIABLE"
+VARIABLE ${1:name}
+endsnippet
+
+snippet VARS "VARIABLES"
+VARIABLES ${1:name}
+endsnippet
+
+snippet SUBSET "SUBSET"
+SUBSET ${1:set}
+endsnippet
+
+snippet IF "IF ... THEN ... ELSE ... "
+IF ${1:expression} THEN ${2:expression} ELSE ${3:expression}
+endsnippet
+
+snippet THEOREM "THEOREM"
+THEOREM ${1:expression}
+endsnippet
+
+snippet UNCHANGED "UNCHANGED"
+UNCHANGED ${1:vars}
+endsnippet
+
+snippet ENABLED "ENABLED"
+ENABLED $1
+endsnippet
+
+snippet RECURSIVE "RECURSIVE"
+RECURSIVE $1
+endsnippet
+
+snippet INSTANCE "INSTANCE"
+INSTANCE ${0:module}
+endsnippet
+
+snippet LINSTANCE "LOCAL INSTANCE"
+LOCAL INSTANCE ${0:module}
+endsnippet
+
+snippet LET "LET ... IN ..."
+LET
+	$1
+IN
+	$2
+endsnippet
+
+snippet EXTENDS "EXTENDS"
+EXTENDS ${0:module}
+endsnippet
+
+snippet Naturals "Naturals"
+Naturals
+endsnippet
+
+snippet Integers "Integers"
+Integers
+endsnippet
+
+snippet Sequences "Sequences"
+Sequences
+endsnippet
+
+snippet Cardinality "Cardinality"
+Cardinality($1)
+endsnippet
+
+snippet SF "Strong fairness"
+SF_${1:vars}
+endsnippet
+
+snippet WF "Weak fairness"
+WF_${1:vars}
+endsnippet
+
+snippet comment "(* comment *)"
+(* $1 *)
+$0
+endsnippet
+
+# Pluscal
+
+## Keywords
+
+snippet algorithm "algorithm"
+(* --algorithm ${1:name}
+begin
+	$2
+end algorithm; *)
+endsnippet
+
+snippet vars
+variables
+	$1
+endsnippet
+
+snippet process "process"
+process ${1:expression}
+begin
+	$1
+end process;
+endsnippet
+
+snippet assert "assert"
+assert 
+endsnippet
+
+snippet define "define"
+define
+	${0:tla}
+end define;
+endsnippet
+
+snippet macro "macro"
+macro ${1:name}($1)
+begin
+	$2
+end macro;
+endsnippet
+
+snippet await "await"
+await ${0:name}
+endsnippet
+
+snippet while "while"
+while ${1:condition} do
+end while;
+endsnippet
+
+snippet with "with"
+with ${1:expression} do
+end with;
+endsnippet
+
+snippet if "if"
+if ${1:expression} then
+elsif ${2:expression} then
+else ${3:expression}
+end if;
+endsnippet
+
+snippet either "either"
+either
+	$1
+or
+	$2
+end either;
+endsnippet
+
+# Operators
+
+snippet assign "x := <expression>"
+$1 := $2
+endsnippet
+
+snippet struct "struct"
+[${1:name} -> ${2:value}]
+endsnippet
+
+snippet function "function"
+[${1:domain} |-> ${2:expression}]
+endsnippet
+
+snippet cartesian "Cartesian product"
+\X $1
+endsnippet
+
+snippet existential "∃ x ∈ X"
+\E $1 \in $2
+endsnippet
+
+snippet universal "∀ x ∈ X"
+\A $1 \in $2
+endsnippet
+
+snippet and "∧"
+/\ $1
+endsnippet
+
+snippet or "∨"
+\/ $1
+endsnippet
+
+snippet not "¬"
+~$1
+endsnippet
+
+snippet intersect "∩"
+\intersect $1
+endsnippet
+
+snippet union "∪"
+\union $1
+endsnippet
+
+snippet without "\"
+\ $2
+endsnippet
+
+snippet in "\in"
+\in
+endsnippet
+
+snippet subset "\subset"
+\subset
+endsnippet
+
+snippet subseteq "\subseteq"
+\subseteq
+endsnippet
+
+snippet always "□"
+[]$1
+endsnippet
+
+snippet eventually "◇"
+<>$1
+endsnippet
+
+snippet leadsto ""
+~> $1
+endsnippet
+
+snippet neq "#"
+# $1
+endsnippet
+
+snippet implies "⇒"
+=> $1
+endsnippet
