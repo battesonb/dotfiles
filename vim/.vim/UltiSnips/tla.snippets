@@ -1,7 +1,7 @@
 global !p
 import vim
 
-side_length = 16
+side_length = 30
 
 def first_line_length():
 	result = vim.eval("len(getline(1,'$')[0])")
@@ -19,11 +19,19 @@ snippet rule "------"
 endsnippet
 
 snippet ASSSUME "ASSSUME"
-ASSSUME ${0:expression}
+ASSSUME ${1:expression}
 endsnippet
 
-snippet CONSTANT "CONSTANT"
+snippet EXCEPT "EXCEPT"
+EXCEPT ${1:expression}
+endsnippet
+
+snippet CONST "CONSTANT"
 CONSTANT ${1:name}
+endsnippet
+
+snippet CONSTS "CONSTANTS"
+CONSTANTS ${1:name}
 endsnippet
 
 snippet CHOOSE "CHOOSE"
@@ -107,8 +115,16 @@ endsnippet
 
 snippet comment "(* comment *)"
 (* $1 *)
+endsnippet
+
+priority 1
+snippet box "(* comment *)"
+`!p snip.rv = "(*" + '*' * (len(t[1]) + 2) + "*)"`
+(* $1 *)
+`!p snip.rv = "(*" + '*' * (len(t[1]) + 2) + "*)"`
 $0
 endsnippet
+
 
 # Pluscal
 

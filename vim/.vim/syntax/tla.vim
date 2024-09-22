@@ -18,6 +18,7 @@ syn keyword tlaKeyword
     \ CONSTANT[S]
     \ DOMAIN
     \ ELSE
+    \ WITH
     \ ENABLED
     \ EXCEPT
     \ IF
@@ -36,7 +37,7 @@ syn match tlaRule /-\{4,\}/
 syn keyword tlaBoolean TRUE FALSE BOOLEAN
 syn region tlaString  start=/"/ skip=/\\"/ end=/"/
 syn match tlaNumber /-\?\d\+\.\d\+/
-syn keyword tlaNumber Int
+syn keyword tlaNumber Int Nat
 syn match tlaFunc /\\\(\*\)\@!/ nextgroup=tlaFuncName
 syn keyword tlaFuncName contained
     \ in
@@ -61,12 +62,14 @@ syn match tlaOperator /<>/
 syn match tlaOperator /=>/
 syn match tlaOperator /<=>/
 syn match tlaOperator /->/
+syn match tlaOperator /<-/
 syn match tlaOperator /|->/
 syn match tlaOperator /#/
+syn match tlaOperator /\/=/
 syn match tlaOperator /+/
 syn match tlaOperator /:/
 syn match tlaOperator /\.\./
-syn match tlaOperator /-\(-\)\@!/
+syn match tlaOperator /-\([->]\)\@!/
 syn match tlaOperator /==\(=\)\@!/
 syn match tlaOperator /=\([=>]\)\@!/
 syn match tlaFairnessOperator /[SW]F_\(<\)\{0,2\}\w\+\(>\)\{0,2\}/
