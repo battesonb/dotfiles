@@ -27,7 +27,9 @@ export NVM_DIR="$HOME/.nvm"
 # Prepare pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if command -v pyenv; then
+  eval "$(pyenv init -)"
+fi
 
 # Export sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
