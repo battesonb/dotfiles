@@ -13,7 +13,12 @@ return {
         },
         config = function()
           require("mason-nvim-dap").setup({
-            ensure_installed = { "delve", "bash-debug-adapter", "codelldb" },
+            ensure_installed = {
+              "bash-debug-adapter",
+              "codelldb",
+              "delve",
+              "ruby",
+            },
           })
         end
       },
@@ -34,12 +39,14 @@ return {
       end
 
       -- Adapters
-      require("plugins.debugger.adapter.codelldb").setup()
       require("plugins.debugger.adapter.bashdb").setup()
+      require("plugins.debugger.adapter.codelldb").setup()
+      require("plugins.debugger.adapter.ruby").setup()
 
       -- Configurations
       require("plugins.debugger.configuration.bash").setup()
       require("plugins.debugger.configuration.c").setup()
+      require("plugins.debugger.configuration.ruby").setup()
       require("plugins.debugger.configuration.rust").setup()
 
       vim.api.nvim_create_user_command("DapWatch", function()
