@@ -9,8 +9,18 @@ return {
           "williamboman/mason.nvim",
         },
         config = function()
-          require("mason-lspconfig").setup({
+          local masonlspconfig = require("mason-lspconfig")
+          masonlspconfig.setup({
             automatic_installation = true,
+          })
+
+          masonlspconfig.setup_handlers({
+            function(server_name)
+              local config = {
+                capabilities = require("cmp_nvim_lsp").default_capabilities()
+              }
+              require("lspconfig")[server_name].setup(config)
+            end,
           })
         end
       },
@@ -20,11 +30,11 @@ return {
           {
             'mireq/luasnip-snippets',
             dependencies = { 'L3MON4D3/LuaSnip' },
+            build = "make install_jsregexp",
             init = function()
               -- Mandatory setup function
               require('luasnip_snippets.common.snip_utils').setup()
             end
-
           },
           {
             "L3MON4D3/LuaSnip",
@@ -53,13 +63,28 @@ return {
           local ls = require("luasnip")
 
           cmp.setup({
+            expand = function(args)
+              require("luasnip").lsp_expand(args.body)
+            end,
             mapping = {
               ["<C-Space>"] = cmp.mapping.complete(),
+              ["<C-k>"] = function(fallback)
+                if ls.locally_jumpable(-1) then
+                  ls.jump(-1)
+                else
+                  fallback()
+                end
+              end,
+              ["<C-j>"] = function(fallback)
+                if ls.expand_or_jumpable() then
+                  ls.expand_or_jump()
+                else
+                  fallback()
+                end
+              end,
               ["<C-p>"] = function(fallback)
                 if cmp.visible() then
                   cmp.select_prev_item()
-                elseif ls.locally_jumpable(-1) then
-                  ls.jump(-1)
                 else
                   fallback()
                 end
@@ -67,8 +92,6 @@ return {
               ["<C-n>"] = function(fallback)
                 if cmp.visible() then
                   cmp.select_next_item()
-                elseif ls.expand_or_jumpable() then
-                  ls.expand_or_jump()
                 else
                   fallback()
                 end
@@ -80,13 +103,14 @@ return {
                 behavior = cmp.ConfirmBehavior.Insert,
                 select = true,
               }),
-              ["<CR>"] = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Insert,
-                select = true,
-              }),
             },
             sources = {
-              { name = "nvim_lsp" },
+              {
+                name = "nvim_lsp",
+                entry_filter = function(entry, _)
+                  return entry:get_kind() ~= cmp.lsp.CompletionItemKind.Snippet
+                end
+              },
               { name = "path" },
               { name = "luasnip" },
               {
@@ -135,8 +159,19 @@ return {
         lspconfig[server].setup(config)
       end
 
-      vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
-      vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
+      vim.keymap.set("n", "[g", function()
+        vim.diagnostic.jump({ count = -1 })
+      end)
+      vim.keymap.set("n", "]g", function()
+        vim.diagnostic.jump({ count = 1 })
+      end)
+
+      -- I didn't know there are new defaults, and I'm too stubborn to change my ways right now!
+      vim.keymap.del("n", "grr")
+      vim.keymap.del("n", "gri")
+      vim.keymap.del({ "n", "x" }, "gra")
+      vim.keymap.del("n", "grn")
+
       vim.keymap.set("n", "gd", vim.lsp.buf.definition)
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
       vim.keymap.set("n", "gy", vim.lsp.buf.type_definition)

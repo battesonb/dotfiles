@@ -7,8 +7,8 @@ return {
       "rshkarin/mason-nvim-lint",
     },
     config = function()
-      local masonlint = require('mason-nvim-lint')
-      local lint = require('lint')
+      local masonlint = require("mason-nvim-lint")
+      local lint = require("lint")
 
       lint.linters_by_ft = {
         markdown = { "markdownlint" },
