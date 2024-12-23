@@ -6,7 +6,6 @@ return {
         ["mini.align"] = {},
         ["mini.icons"] = {},
         ["mini.statusline"] = {},
-        ["mini.surround"] = {},
       },
     },
     config = function(_, opts)

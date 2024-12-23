@@ -7,7 +7,10 @@ return {
     opts = {
       keymaps = {
         ["<ESC>"] = { "actions.close", mode = "n" }
-      }
+      },
+      view_options = {
+        show_hidden = true,
+      },
     },
     config = function(_, opts)
       local oil = require('oil')
