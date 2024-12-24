@@ -159,18 +159,21 @@ return {
         lspconfig[server].setup(config)
       end
 
-      vim.keymap.set("n", "[g", function()
-        vim.diagnostic.jump({ count = -1 })
-      end)
-      vim.keymap.set("n", "]g", function()
-        vim.diagnostic.jump({ count = 1 })
-      end)
-
-      -- I didn't know there are new defaults, and I'm too stubborn to change my ways right now!
-      vim.keymap.del("n", "grr")
-      vim.keymap.del("n", "gri")
-      vim.keymap.del({ "n", "x" }, "gra")
-      vim.keymap.del("n", "grn")
+      if vim.diagnostic.jump then
+        vim.keymap.set("n", "[g", function()
+          vim.diagnostic.jump({ count = -1 })
+        end)
+        vim.keymap.set("n", "]g", function()
+          vim.diagnostic.jump({ count = 1 })
+        end)
+      else
+        vim.keymap.set("n", "[g", function()
+          vim.diagnostic.goto_prev()
+        end)
+        vim.keymap.set("n", "]g", function()
+          vim.diagnostic.goto_next()
+        end)
+      end
 
       vim.keymap.set("n", "gd", vim.lsp.buf.definition)
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
@@ -181,6 +184,13 @@ return {
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
       vim.keymap.set({ "n", "v" }, "<leader>rf", vim.lsp.buf.format)
+
+      -- I didn't know there are new defaults, and I'm too stubborn to change my ways right now!
+      local keymap = require("config.utils.keymap")
+      keymap.keymap_del_unconditional("grr", "n")
+      keymap.keymap_del_unconditional("gri", "n")
+      keymap.keymap_del_unconditional("gra", "n")
+      keymap.keymap_del_unconditional("grn", "n")
     end
   }
 }
