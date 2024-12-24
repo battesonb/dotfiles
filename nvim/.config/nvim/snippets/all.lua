@@ -7,6 +7,6 @@ local env = {
 }
 
 return {
-  env.s("time", env.p(os.date, "%H:%M")),
-  env.s("dtime", env.p(os.date, "%Y-%m-%dT%H:%M:%S+10:00")),
+  env.s("dtime", env.p(os.date, "%Y-%m-%dT%H:%M:%S")),
+  env.s("epoch", env.p(os.date, "%s")),
 }

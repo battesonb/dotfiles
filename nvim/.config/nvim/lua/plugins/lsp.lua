@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     priority = 250,
     dependencies = {
+      "hrsh7th/nvim-cmp",
       {
         "williamboman/mason-lspconfig.nvim",
         dependencies = {
@@ -21,107 +22,6 @@ return {
               }
               require("lspconfig")[server_name].setup(config)
             end,
-          })
-        end
-      },
-      {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-          {
-            'mireq/luasnip-snippets',
-            dependencies = { 'L3MON4D3/LuaSnip' },
-            build = "make install_jsregexp",
-            init = function()
-              -- Mandatory setup function
-              require('luasnip_snippets.common.snip_utils').setup()
-            end
-          },
-          {
-            "L3MON4D3/LuaSnip",
-            lazy = true,
-            init = function()
-              local ls = require('luasnip')
-              local lua = require("luasnip.loaders.from_lua")
-
-              ls.setup({
-                load_ft_func = require('luasnip_snippets.common.snip_utils').load_ft_func,
-                ft_func = require('luasnip_snippets.common.snip_utils').ft_func,
-                enable_autosnippets = true,
-              })
-
-              ls.config.set_config({ history = true, updateevents = "TextChanged,TextChangedI" })
-
-              lua.load({ paths = { vim.fn.stdpath("config") .. "/snippets/" } })
-            end
-          },
-          { "hrsh7th/cmp-buffer" },
-          { "hrsh7th/cmp-nvim-lsp" },
-          { "saadparwaiz1/cmp_luasnip" },
-        },
-        config = function()
-          local cmp = require("cmp")
-          local ls = require("luasnip")
-
-          cmp.setup({
-            expand = function(args)
-              require("luasnip").lsp_expand(args.body)
-            end,
-            mapping = {
-              ["<C-Space>"] = cmp.mapping.complete(),
-              ["<C-k>"] = function(fallback)
-                if ls.locally_jumpable(-1) then
-                  ls.jump(-1)
-                else
-                  fallback()
-                end
-              end,
-              ["<C-j>"] = function(fallback)
-                if ls.expand_or_jumpable() then
-                  ls.expand_or_jump()
-                else
-                  fallback()
-                end
-              end,
-              ["<C-p>"] = function(fallback)
-                if cmp.visible() then
-                  cmp.select_prev_item()
-                else
-                  fallback()
-                end
-              end,
-              ["<C-n>"] = function(fallback)
-                if cmp.visible() then
-                  cmp.select_next_item()
-                else
-                  fallback()
-                end
-              end,
-              ["<C-f>"] = cmp.mapping.scroll_docs(4),
-              ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-              ["<C-e>"] = cmp.mapping.close(),
-              ["<C-y>"] = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Insert,
-                select = true,
-              }),
-            },
-            sources = {
-              {
-                name = "nvim_lsp",
-                entry_filter = function(entry, _)
-                  return entry:get_kind() ~= cmp.lsp.CompletionItemKind.Snippet
-                end
-              },
-              { name = "path" },
-              { name = "luasnip" },
-              {
-                name = "buffer",
-                option = {
-                  get_bufnrs = function()
-                    return vim.api.nvim_list_bufs()
-                  end
-                },
-              },
-            },
           })
         end
       },
