@@ -56,7 +56,7 @@ return {
       vim.keymap.set("n", "<leader>dd", dap.continue)
       vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
       vim.keymap.set("n", "<leader>dc", dap.clear_breakpoints)
-      vim.keymap.set("n", "<leader>dh", dap.run_to_cursor)
+      vim.keymap.set("n", "<leader>dp", dap.run_to_cursor)
       vim.keymap.set("n", "<leader>dw", function()
         local to_watch = vim.fn.expand("<cword>")
         for i, watched in ipairs(ui.elements.watches.get()) do

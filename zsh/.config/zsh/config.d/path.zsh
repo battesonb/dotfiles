@@ -2,36 +2,40 @@
 
 export EDITOR=nvim
 
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
-# Dart-related paths
-export PATH="/usr/lib/dart/bin:$PATH"
-
-# Rust-related paths
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/lib/dart/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # Haskell (ghcup)
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
 # rbenv
-if command -v rbenv; then
-  eval "$(rbenv init - zsh)"
+if command -v rbenv >/dev/null 2>&1; then
+  function rbenv {
+    unset -f rbenv
+    eval "$(rbenv init - zsh)"
+    rbenv "$@"
+  }
 fi
 
-# Prepare nvm
+# nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm $@"
 
-# Prepare pyenv
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv; then
-  eval "$(pyenv init -)"
+if command -v pyenv >/dev/null 2>&1; then
+  function pyenv {
+    unset -f pyenv
+    eval "$(pyenv init -)"
+    pyenv "$@"
+  }
 fi
 
-# Export sdkman
+# sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
