@@ -15,30 +15,14 @@ return {
         expand = function(args)
           ls.lsp_expand(args.body)
         end,
-        mapping = {
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-p>"] = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            else
-              fallback()
-            end
-          end,
-          ["<C-n>"] = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            else
-              fallback()
-            end
-          end,
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-e>"] = cmp.mapping.close(),
-          ["<C-y>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-          }),
-        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-Space>"] = {
+            i = cmp.mapping.complete(),
+          },
+          ["<CR>"] = {
+            i = cmp.mapping.confirm({ select = true }),
+          },
+        }),
         sources = {
           {
             name = "nvim_lsp",
