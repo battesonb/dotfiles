@@ -19,14 +19,18 @@ return {
           ["<C-Space>"] = {
             i = cmp.mapping.complete(),
           },
+          ["<C-y>"] = {
+            i = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+          },
           ["<CR>"] = {
-            i = cmp.mapping.confirm({ select = true }),
+            i = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
           },
         }),
         sources = {
           {
             name = "nvim_lsp",
             entry_filter = function(entry, _)
+              -- Remove LSP snippets
               return entry:get_kind() ~= cmp.lsp.CompletionItemKind.Snippet
             end
           },
