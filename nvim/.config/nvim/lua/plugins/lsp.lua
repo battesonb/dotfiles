@@ -44,7 +44,15 @@ return {
         lua_ls = {},
         marksman = {},
         pylsp = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              cargo = {
+                features = require("plugins.lsp.rust").project_features(),
+              }
+            }
+          },
+        },
         solargraph = {
           root_dir = vim.fs.root(vim.fn.getcwd(), { ".git", "Gemfile", "Rakefile" })
         },
