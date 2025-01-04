@@ -56,6 +56,27 @@ return {
         solargraph = {
           root_dir = vim.fs.root(vim.fn.getcwd(), { ".git", "Gemfile", "Rakefile" })
         },
+        tailwindcss = {
+          filetypes = {
+            "html",
+            "css",
+            "scss",
+            "sass",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "rust",
+          },
+          root_dir = require("plugins.lsp.tailwind").root_dir,
+          settings = {
+            tailwindCSS = {
+              includeLanguages = {
+                rust = "html"
+              }
+            }
+          },
+        },
         ts_ls = {},
       },
     },
