@@ -108,6 +108,7 @@ return {
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
       vim.keymap.set("n", "gy", vim.lsp.buf.type_definition)
       vim.keymap.set("n", "gr", vim.lsp.buf.references)
+      vim.keymap.set("n", "gs", vim.lsp.buf.document_symbol)
       vim.keymap.set("n", "K", vim.lsp.buf.hover)
       vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
