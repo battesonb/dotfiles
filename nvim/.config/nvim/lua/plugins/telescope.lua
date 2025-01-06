@@ -43,6 +43,7 @@ return {
       require("telescope").setup(opts)
       require("telescope").load_extension("fzf")
       require "config.telescope.focusgrep".setup()
+      require "config.telescope.gitdifffiles".setup()
 
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffer" })
       vim.keymap.set("n", "<leader>fc", builtin.git_commits, { desc = "Find Git commits" })
