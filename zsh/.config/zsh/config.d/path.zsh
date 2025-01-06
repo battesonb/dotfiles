@@ -45,3 +45,8 @@ case `uname` in
     alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
   ;;
 esac
+
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  export PATH="$PATH:/opt/nvim-linux64/bin"
+fi
