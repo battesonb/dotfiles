@@ -60,7 +60,6 @@ return {
       vim.keymap.set("n", "<leader>dw", function()
         local to_watch = vim.fn.expand("<cword>")
         for i, watched in ipairs(ui.elements.watches.get()) do
-          print(watched.expression .. " == " .. to_watch)
           if watched.expression == to_watch then
             ui.elements.watches.remove(i)
             return
