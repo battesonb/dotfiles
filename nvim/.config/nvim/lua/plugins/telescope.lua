@@ -17,7 +17,7 @@ return {
           buffers = {},
           git_commits = {},
           find_files = {
-            file_ignore_patterns = { "node_modules", ".git" },
+            file_ignore_patterns = { "^node_modules$", "^.git$" },
             hidden = true,
             mappings = {
               n = {
