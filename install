@@ -1,9 +1,26 @@
 #!/usr/bin/env zsh
-cd ${0:a:h}
-for folder in $(ls -d */ 2> /dev/null)
-do
+
+# Create symlinks
+pushd ${0:a:h}
+for folder in $(ls -d */ 2> /dev/null); do
     echo "Stowing $folder"
     stow -D $folder
     stow $folder
 done
-cd -
+popd
+
+# Prepare ZSH plugins
+local plugins=(
+  'https://github.com/zsh-users/zsh-autosuggestions'
+  'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+)
+local plugin_dir="$HOME/.config/zsh/plugins.d"
+mkdir -p "$plugin_dir"
+pushd "$plugin_dir"
+for plugin in $plugins; do
+  local name=$(echo "$plugin" | rev | cut -d'/' -f1 | rev | cut -d'.' -f1)
+  if [ ! -d $name ]; then
+    git clone $plugin --depth 1
+  fi
+done
+popd

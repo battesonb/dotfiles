@@ -1,1 +1,2 @@
 **/*.swp
+/zsh/.config/zsh/plugins.d
