@@ -28,6 +28,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   callback = function()
     local commands = {
       bash = "bash",
+      javascript = "node",
       python = "python",
       ruby = "ruby",
     }
