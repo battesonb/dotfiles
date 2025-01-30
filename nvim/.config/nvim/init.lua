@@ -30,6 +30,11 @@ for i = 1, #undo_breakpoints do
   vim.keymap.set("i", breakpoint, breakpoint .. "<C-g>u", { noremap = true })
 end
 
+local vimscript_overrides = vim.fn.expand("~/.vim_overrides")
+if vim.fn.filereadable(vimscript_overrides) == 1 then
+  vim.cmd("source '" .. vimscript_overrides .. "'")
+end
+
 require("config")
 require("config.lazy")
 
