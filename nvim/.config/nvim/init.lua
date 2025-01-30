@@ -32,7 +32,7 @@ end
 
 local vimscript_overrides = vim.fn.expand("~/.vim_overrides")
 if vim.fn.filereadable(vimscript_overrides) == 1 then
-  vim.cmd("source '" .. vimscript_overrides .. "'")
+  vim.cmd("source " .. vimscript_overrides)
 end
 
 require("config")
