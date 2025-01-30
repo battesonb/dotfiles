@@ -21,6 +21,9 @@ return {
       vim.keymap.set({ "i", "s" }, "<C-l>", function()
         if ls.choice_active() then
           ls.change_choice(1)
+        else
+          local keys = vim.api.nvim_replace_termcodes("<C-g>u<Esc>[s1z=`]a<C-g>u", true, false, true)
+          vim.api.nvim_feedkeys(keys, "n", false)
         end
       end)
     end

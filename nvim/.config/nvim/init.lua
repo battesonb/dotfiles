@@ -2,7 +2,6 @@ vim.g.mapleader = " "       -- global leader
 vim.g.maplocalleader = "\\" -- file type local leader
 
 vim.o.spell = true          -- enable spell check
-vim.keymap.set("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u")
 
 vim.o.number = true         -- enable line numbers
 vim.o.relativenumber = true -- enable relative line numbers
