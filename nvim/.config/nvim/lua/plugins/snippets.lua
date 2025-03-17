@@ -2,13 +2,14 @@ return {
   {
     "L3MON4D3/LuaSnip",
     lazy = true,
+    dependencies = { 'rafamadriz/friendly-snippets' },
+    build = "make install_jsregexp",
     init = function()
-      local ls = require('luasnip')
+      local ls = require("luasnip")
       local lua = require("luasnip.loaders.from_lua")
+      require("luasnip.loaders.from_vscode").lazy_load()
 
       ls.setup({
-        load_ft_func = require('luasnip_snippets.common.snip_utils').load_ft_func,
-        ft_func = require('luasnip_snippets.common.snip_utils').ft_func,
         enable_autosnippets = true,
       })
 
@@ -29,12 +30,13 @@ return {
     end
   },
   {
-    'mireq/luasnip-snippets',
-    dependencies = { 'L3MON4D3/LuaSnip' },
-    build = "make install_jsregexp",
-    init = function()
-      -- Mandatory setup function
-      require('luasnip_snippets.common.snip_utils').setup()
+    "danymat/neogen",
+    config = function()
+      local neogen = require('neogen')
+      neogen.setup({ snippet_engine = "luasnip" })
+
+      vim.keymap.set("n", "<Leader>ck", function() neogen.generate() end,
+        { noremap = true, silent = true })
     end
   },
 }
