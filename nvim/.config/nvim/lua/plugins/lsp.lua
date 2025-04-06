@@ -39,6 +39,11 @@ return {
       servers = {
         bashls = {},
         clangd = {},
+        dartls = {
+          {
+            cmd = { "dart", 'language-server', '--protocol=lsp' },
+          }
+        },
         gopls = {},
         jdtls = {},
         lua_ls = {},
@@ -90,17 +95,17 @@ return {
 
       if vim.diagnostic.jump then
         vim.keymap.set("n", "[g", function()
-          vim.diagnostic.jump({ count = -1 })
+          vim.diagnostic.jump({ count = -1, float = true })
         end)
         vim.keymap.set("n", "]g", function()
-          vim.diagnostic.jump({ count = 1 })
+          vim.diagnostic.jump({ count = 1, float = true })
         end)
       else
         vim.keymap.set("n", "[g", function()
-          vim.diagnostic.goto_prev()
+          vim.diagnostic.get_prev({ float = true })
         end)
         vim.keymap.set("n", "]g", function()
-          vim.diagnostic.goto_next()
+          vim.diagnostic.get_next({ float = true })
         end)
       end
 
