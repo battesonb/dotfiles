@@ -7,6 +7,7 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lsp",
       "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
     },
     config = function()
       local cmp = require("cmp")
@@ -35,6 +36,7 @@ return {
               return entry:get_kind() ~= cmp.lsp.CompletionItemKind.Snippet
             end
           },
+          { name = "nvim_lsp_signature_help" },
           { name = "path" },
           { name = "luasnip" },
           {
