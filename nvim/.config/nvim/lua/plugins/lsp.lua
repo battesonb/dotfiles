@@ -82,7 +82,7 @@ return {
             }
           },
         },
-        ts_ls = {},
+        vtsls = {},
       },
     },
     config = function(_, opts)
