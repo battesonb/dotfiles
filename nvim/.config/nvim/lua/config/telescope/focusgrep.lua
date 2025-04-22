@@ -12,7 +12,7 @@ local file_ignore_patterns = {
   "*-lock.json*"
 }
 
-local focus_live_grep = function(opts)
+M.focus_live_grep = function(opts)
   opts = opts or {}
   opts.cwd = opts.cwd or vim.uv.cwd()
 
@@ -71,7 +71,7 @@ local focus_live_grep = function(opts)
 end
 
 M.setup = function()
-  vim.keymap.set("n", "<leader>fg", focus_live_grep)
+  vim.keymap.set("n", "<leader>fg", M.focus_live_grep)
 end
 
 return M

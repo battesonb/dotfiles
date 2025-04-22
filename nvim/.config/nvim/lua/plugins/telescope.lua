@@ -42,7 +42,8 @@ return {
 
       require("telescope").setup(opts)
       require("telescope").load_extension("fzf")
-      require "config.telescope.focusgrep".setup()
+      local focusgrep = require "config.telescope.focusgrep"
+      focusgrep.setup()
       require "config.telescope.gitdifffiles".setup()
 
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffer" })
@@ -53,11 +54,16 @@ return {
       vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "Find treesitter" })
 
       -- Meta
-      vim.keymap.set("n", "<leader>nc", function()
+      vim.keymap.set("n", "<leader>nf", function()
         builtin.find_files({
           cwd = vim.fn.stdpath("config")
         })
-      end, { desc = "Neovim config" })
+      end, { desc = "Neovim config find" })
+      vim.keymap.set("n", "<leader>ng", function()
+        focusgrep.focus_live_grep({
+          cwd = vim.fn.stdpath("config")
+        })
+      end, { desc = "Neovim config grep" })
       vim.keymap.set("n", "<leader>np", function()
         builtin.find_files({
           cwd = vim.fn.stdpath("data") .. "/lazy"
