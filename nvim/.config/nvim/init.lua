@@ -11,6 +11,7 @@ vim.o.tabstop = 2           -- number of visual spaces per tab
 vim.o.softtabstop = 2       -- number of spaces in tab when editing
 vim.o.expandtab = true      -- tabs are spaces
 vim.o.shiftwidth = 2        -- shift width is the same as our tab size
+vim.o.textwidth = 100       -- default to 100 character width
 vim.o.list = true           -- shows a set of normally invisible characters
 vim.o.listchars = table.concat({
   "tab:▸·",
