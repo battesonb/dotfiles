@@ -1,4 +1,4 @@
-@define-color background #092121;
+@define-color background #0a2326;
 @define-color text #fff;
 
 * {
@@ -41,5 +41,13 @@ window {
 }
 
 #entry {
-  padding: 14;
+  margin: 0 12px;
+  padding: 14px;
+}
+
+#entry:selected {
+  background-color: alpha(white, 0.05);
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, .03);
+  border: none;
+  border-radius: 18px;
 }

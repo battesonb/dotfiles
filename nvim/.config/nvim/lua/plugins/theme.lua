@@ -1,10 +1,22 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "sainnhe/sonokai",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd[[colorscheme tokyonight-moon]]
+      vim.g.sonokai_style = 'maia'
+      vim.opt.termguicolors = true
+      vim.cmd.colorscheme("sonokai")
+    end
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require 'colorizer'.setup({
+        "css",
+        "javascript",
+        "html",
+      })
     end
   },
 }

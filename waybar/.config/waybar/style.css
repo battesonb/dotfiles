@@ -1,6 +1,10 @@
+@define-color inactive #aaa;
+@define-color error #ff7770;
+@define-color bgdefault rgba(230, 220, 255, 0.15);
+
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  /* A Nerd Font is required to be installed for icons, prefer Aribo */
+  font-family: Aribo, Roboto, Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
 
@@ -50,7 +54,7 @@ button:hover {
 #workspaces button {
   padding: 0 5px;
   background-color: transparent;
-  color: #aaa;
+  color: @inactive;
 }
 
 #workspaces button:hover {
@@ -95,9 +99,8 @@ button:hover {
 #temperature,
 #tray,
 #wireplumber {
-  background-color: rgba(230, 220, 255, 0.15);
+  background-color: @bgdefault;
   padding: 0 12px;
-  color: #ffffff;
 }
 
 #window,
@@ -135,27 +138,34 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
+  background-color: @error;
   color: #ffffff;
   animation-name: blink;
-  animation-duration: 0.5s;
+  animation-duration: 0.7s;
   animation-timing-function: steps(12);
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
+#bluetooth {
+  background-color: @error;
+  border-bottom: 4px solid #2980b9;
+}
+
+#bluetooth.on {
+  background-color: @bgdefault;
+}
+
 #power-profiles-daemon {
-  padding-right: 15px;
+  padding-right: 12px;
 }
 
 #power-profiles-daemon.performance {
   border-bottom: 4px solid #f53c3c;
-  color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
   border-bottom: 4px solid #2980b9;
-  color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
@@ -202,7 +212,7 @@ label:focus {
 }
 
 #wireplumber.muted {
-  border-bottom: 4px solid #f53c3c;
+  border-bottom: 4px solid @error;
 }
 
 #custom-media {
@@ -245,8 +255,8 @@ label:focus {
 }
 
 #idle_inhibitor.deactivated {
-  color: #2d3436;
-  border-bottom: 4px solid #2d3436;
+  color: @inactive;
+  border-bottom: 4px solid @inactive;
 }
 
 #mpd {
@@ -255,7 +265,7 @@ label:focus {
 }
 
 #mpd.disconnected {
-  border-bottom: 4px solid #f53c3c;
+  border-bottom: 4px solid @error;
 }
 
 #mpd.stopped {

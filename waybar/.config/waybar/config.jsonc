@@ -17,8 +17,8 @@
     "idle_inhibitor",
     "power-profiles-daemon",
     "bluetooth",
-    "pulseaudio",
     "network",
+    "pulseaudio",
     "cpu",
     "disk",
     "memory",
@@ -31,6 +31,15 @@
     "custom/power"
   ],
   // Modules configuration
+  "bluetooth": {
+    "format-on": "",
+    "format-off": "󰂲 (o)",
+    "format-disconnected": "󰂲 (d)",
+    "format-no-controller": "󰂲 (c)",
+    "tooltip-format-off": "Off",
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-no-controller": "No controller",
+  },
   "hyprland/language": {
     "format": "{shortDescription}-<span text_transform=\"uppercase\">{short}</span>",
   },
@@ -38,7 +47,7 @@
     "format": "{name}: {icon}",
     "format-icons": {
       "urgent": "",
-      "active": "",
+      "active": "",
       "default": "",
       "empty": "",
     },
