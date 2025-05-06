@@ -1,0 +1,45 @@
+@define-color background #092121;
+@define-color text #fff;
+
+* {
+  font-size: 15px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+window {
+  all: unset;
+  background-color: alpha(@background, 0.7);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+#text {
+  margin: 12px;
+}
+
+#inner-box {
+  padding: 8px;
+}
+
+#outer-box {
+  padding: 4px;
+}
+
+#input {
+  background-color: alpha(white, 0.05);
+  box-shadow: 4pj 2px 2px rgba(0, 10, 15, 0.25);
+  border-radius: 12px;
+  color: @text;
+  margin: 20px 20px 0 20px;
+  padding: 20px;
+}
+
+#input image {
+  color: alpha(@text, 0.7);
+}
+
+#entry {
+  padding: 14;
+}
