@@ -6,7 +6,9 @@ return {
     ---@type oil.SetupOpts
     opts = {
       keymaps = {
-        ["<ESC>"] = { "actions.close", mode = "n" }
+        ["<ESC>"] = { "actions.close", mode = "n" },
+        ["<C-v>"] = { "actions.select", opts = { vertical = true } },
+        ["<C-x>"] = { "actions.select", opts = { horizontal = true } },
       },
       view_options = {
         show_hidden = true,

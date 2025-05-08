@@ -1,6 +1,10 @@
 @define-color inactive #aaa;
 @define-color error #ff7770;
 @define-color bgdefault rgba(230, 220, 255, 0.15);
+@define-color red #f53c3c;
+@define-color blue #2980b9;
+@define-color green #2ecc71;
+@define-color purple #9c5bd9;
 
 * {
   /* A Nerd Font is required to be installed for icons, prefer Aribo */
@@ -149,11 +153,19 @@ button:hover {
 
 #bluetooth {
   background-color: @error;
-  border-bottom: 4px solid #2980b9;
+  border-bottom: 4px solid @blue;
 }
 
 #bluetooth.on {
   background-color: @bgdefault;
+}
+
+#network {
+  border-bottom: 4px solid @blue;
+}
+
+#network.disconnected {
+  background-color: @error;
 }
 
 #power-profiles-daemon {
@@ -161,15 +173,15 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-  border-bottom: 4px solid #f53c3c;
+  border-bottom: 4px solid @red;
 }
 
 #power-profiles-daemon.balanced {
-  border-bottom: 4px solid #2980b9;
+  border-bottom: 4px solid @blue;
 }
 
 #power-profiles-daemon.power-saver {
-  border-bottom: 4px solid #2ecc71;
+  border-bottom: 4px solid @green;
   color: #000000;
 }
 
@@ -178,23 +190,15 @@ label:focus {
 }
 
 #cpu {
-  border-bottom: 4px solid #2ecc71;
+  border-bottom: 4px solid @green;
 }
 
 #memory {
-  border-bottom: 4px solid #9b59b6;
+  border-bottom: 4px solid @green;
 }
 
 #disk {
-  border-bottom: 4px solid #964B00;
-}
-
-#network {
-  border-bottom: 4px solid #2980b9;
-}
-
-#network.disconnected {
-  border-bottom: 4px solid #f53c3c;
+  border-bottom: 4px solid @green;
 }
 
 #pulseaudio {
@@ -234,7 +238,7 @@ label:focus {
 }
 
 #temperature.critical {
-  border-bottom: 4px solid #eb4d4b;
+  background-color: @error;
 }
 
 #tray {
@@ -247,7 +251,7 @@ label:focus {
 
 #tray>.needs-attention {
   -gtk-icon-effect: highlight;
-  border-bottom: 4px solid #eb4d4b;
+  border-bottom: 4px solid @error;
 }
 
 #idle_inhibitor {
@@ -276,19 +280,19 @@ label:focus {
   border-bottom: 4px solid #51a37a;
 }
 
+#clock {
+  border-bottom: 4px solid @green;
+}
+
 #language {
-  border-bottom: 4px solid #00b093;
+  border-bottom: 4px solid @purple;
   padding: 0 5px;
   margin: 0 5px;
   min-width: 16px;
 }
 
-#clock {
-  border-bottom: 4px solid #00b093;
-}
-
 #keyboard-state {
-  border-bottom: 4px solid #97e1ad;
+  border-bottom: 4px solid @purple;
   padding: 0 0px;
   min-width: 16px;
 }
