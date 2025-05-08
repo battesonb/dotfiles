@@ -223,7 +223,7 @@
     "menu": "on-click",
     "menu-file": "/usr/share/waybar/custom_modules/power_menu.xml", // Menu file in resources folder
     "menu-actions": {
-      "shutdown": "shutdown",
+      "shutdown": "shutdown now",
       "reboot": "reboot",
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate"

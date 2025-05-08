@@ -1,6 +1,7 @@
 @define-color inactive #aaa;
 @define-color error #ff7770;
 @define-color bgdefault rgba(230, 220, 255, 0.15);
+@define-color bghighlight rgba(255, 255, 255, 0.35);
 @define-color red #f53c3c;
 @define-color blue #2980b9;
 @define-color green #2ecc71;
@@ -302,7 +303,7 @@ label:focus {
 }
 
 #keyboard-state>label.locked {
-  background: rgba(0, 0, 0, 0.2);
+  background: @bghighlight;
 }
 
 #scratchpad {
@@ -332,4 +333,9 @@ label:focus {
 
 #privacy-item.audio-out {
   border-bottom: 4px solid #0069d4;
+}
+
+#custom-power {
+  font-weight: bold;
+  padding: 0 12px 0 6px;
 }
