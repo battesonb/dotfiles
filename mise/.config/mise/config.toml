@@ -1,0 +1,7 @@
+[tools]
+go = "latest"
+java = "latest"
+neovim = "latest"
+node = "22"
+python = "3.13"
+rust = "latest"
