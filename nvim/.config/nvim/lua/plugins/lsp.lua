@@ -58,9 +58,6 @@ return {
             }
           },
         },
-        solargraph = {
-          root_dir = vim.fs.root(vim.fn.getcwd(), { ".git", "Gemfile", "Rakefile" })
-        },
         tailwindcss = {
           filetypes = {
             "html",
@@ -87,6 +84,8 @@ return {
     },
     config = function(_, opts)
       local lspconfig = require("lspconfig")
+
+      vim.lsp.inlay_hint.enable()
 
       for server, config in pairs(opts.servers) do
         config.capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -117,6 +116,9 @@ return {
       vim.keymap.set("n", "K", vim.lsp.buf.hover)
       vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+      vim.keymap.set("n", "<leader>ci", function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+      end)
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
       vim.keymap.set({ "n", "v" }, "<leader>rf", vim.lsp.buf.format)
 
