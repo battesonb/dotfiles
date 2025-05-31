@@ -21,13 +21,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- This does not configure Lua as it is supported in-editor. See after/ftplugin/lua.lua for that configuration.
+-- This does not configure Lua as it is supported in-editor. See after/ftplugin/lua.lua for that
+-- configuration.
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   desc = "Set scripting language keymap",
   group = vim.api.nvim_create_augroup("scripting-keymap", { clear = true }),
   callback = function()
     local commands = {
       bash = "bash",
+      sh = "bash",
       javascript = "node",
       python = "python",
       ruby = "ruby",
