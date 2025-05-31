@@ -1,2 +1,3 @@
 **/*.swp
 /zsh/.config/zsh/plugins.d
+/nvim/.config/nvim/lua/config/overrides.lua
