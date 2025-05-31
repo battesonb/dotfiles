@@ -29,7 +29,7 @@ window {
 
 #input {
   background-color: alpha(white, 0.05);
-  box-shadow: 4pj 2px 2px rgba(0, 10, 15, 0.25);
+  box-shadow: 4px 2px 2px rgba(0, 10, 15, 0.25);
   border-radius: 12px;
   color: @text;
   margin: 20px 20px 0 20px;
