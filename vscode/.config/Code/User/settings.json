@@ -1,0 +1,121 @@
+{
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "vim.incsearch": true,
+    "vim.leader": "<space>",
+    "vim.smartRelativeLine": true,
+    "vim.surround": true,
+    "vim.handleKeys": {
+        "<C-y>": true
+    },
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "c", "a"],
+            "silent": true,
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": ["<leader>", "r", "f"],
+            "silent": true,
+            "commands": [
+                "editor.action.formatSelection"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "f", "f"],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": ["<leader>", "f", "g"],
+            "commands": [
+                "workbench.view.search"
+            ]
+        },
+        {
+            "before": ["<leader>", "r", "f"],
+            "silent": true,
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": ["<leader>", "r", "n"],
+            "silent": true,
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": ["<leader>", "c", "a"],
+            "silent": true,
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": ["K"],
+            "silent": true,
+            "commands": [
+                "editor.action.triggerSuggest"
+            ]
+        },
+        {
+            "before": ["<C-y>"],
+            "silent": true,
+            "commands": [
+                "editor.action.accessibleViewAcceptInlineCompletion"
+            ]
+        },
+        {
+            "before": ["]", "g"],
+            "silent": true,
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": ["[", "g"],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": ["g", "d"],
+            "silent": true,
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": ["g", "i"],
+            "silent": true,
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            "before": ["g", "r"],
+            "silent": true,
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": ["g", "y"],
+            "silent": true,
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
+        }
+    ],
+    "telemetry.telemetryLevel": "off",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2 }"
+}
