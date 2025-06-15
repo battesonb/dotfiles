@@ -14,6 +14,7 @@ return {
       local ls = require("luasnip")
 
       cmp.setup({
+        preselect = cmp.PreselectMode.None,
         expand = function(args)
           ls.lsp_expand(args.body)
         end,
@@ -28,7 +29,19 @@ return {
             i = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
           },
         }),
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        },
         sources = {
+          { name = "luasnip" },
           {
             name = "nvim_lsp",
             entry_filter = function(entry, _)
@@ -38,7 +51,6 @@ return {
           },
           { name = "nvim_lsp_signature_help" },
           { name = "path" },
-          { name = "luasnip" },
           {
             name = "buffer",
             option = {

@@ -10,3 +10,9 @@ vim.keymap.set("x", "<leader>p", "\"_dP")             -- keep value in register 
 -- Replace word under cursor (see cmdline.txt for more)
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("v", "<leader>s", ":s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+-- Correct previous spelling error
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
+  local keys = vim.api.nvim_replace_termcodes("<C-g>u<Esc>[s1z=`]a<C-g>u", true, false, true)
+  vim.api.nvim_feedkeys(keys, "n", false)
+end)
