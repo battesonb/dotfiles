@@ -1,7 +1,9 @@
 [tools]
 go = "latest"
 java = "latest"
+lua = "latest"
 neovim = "latest"
 node = "22"
 python = "3.13"
+ruby = "latest"
 rust = "latest"
