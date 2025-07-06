@@ -4,6 +4,7 @@ return {
     branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -42,6 +43,7 @@ return {
 
       require("telescope").setup(opts)
       require("telescope").load_extension("fzf")
+      require("telescope").load_extension("ui-select")
       local focusgrep = require "config.telescope.focusgrep"
       focusgrep.setup()
       require "config.telescope.gitdifffiles".setup()
