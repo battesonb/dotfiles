@@ -24,6 +24,6 @@ if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
 fi
 
 # Activate mise, if present
-if [ -f "/usr/bin/mise" ]; then
-  eval "$(/usr/bin/mise activate bash)"
+if [ $+commands[mise] ]; then
+  eval "$($(whereis -b mise | cut -d' ' -f2) activate bash)"
 fi
