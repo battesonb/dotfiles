@@ -7,7 +7,18 @@ return {
 
       configs.setup({
         modules = {},
-        ensure_installed = { "c", "go", "rust", "lua", "vim", "vimdoc", "query", "typescript", "markdown", "markdown_inline" },
+        ensure_installed = {
+          "c",
+          "go",
+          "lua",
+          "markdown",
+          "markdown_inline",
+          "query",
+          "rust",
+          "typescript",
+          "vim",
+          "vimdoc",
+        },
         sync_install = false,
         auto_install = true,
         ignore_install = {},
@@ -21,7 +32,7 @@ return {
       })
 
       vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
       vim.opt.foldlevel = 99
     end
   },
