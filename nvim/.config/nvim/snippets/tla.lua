@@ -184,19 +184,19 @@ ls.add_snippets("tla", tbl.concat({
       t "end while;",
     }),
   },
-  tbl.map(keywords, function(value)
+  vim.iter(keywords):map(function(value)
     return s(value, {
       t(value),
     })
-  end),
-  tbl.map(mappings, function(value)
+  end):totable(),
+  vim.iter(mappings):map(function(value)
     return s(value, {
       t(value.content),
     })
-  end),
-  tbl.map(prefix_keywords, function(value)
+  end):totable(),
+  vim.iter(prefix_keywords):map(function(value)
     return s(value, {
       t(value), t " ", i(0),
     })
-  end)
+  end):totable()
 ))
