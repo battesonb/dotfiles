@@ -21,6 +21,7 @@ local prefix_keywords = {
   "RECURSIVE",
   "UNCHANGED",
   "VARIABLE",
+  "THEOREM",
   "assert",
   "await",
   "call",
