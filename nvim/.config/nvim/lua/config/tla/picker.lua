@@ -5,8 +5,11 @@ local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
 local tla_actions = require('config.tla.actions')
 local Table = require("config.utils.table")
+local utils = require('config.tla.utils')
 
 local function picker(opts)
+  local visual_selection = utils.get_visual_selection()
+
   opts = opts or {}
   pickers.new(opts, {
     prompt_title = "TLA Actions",
@@ -18,7 +21,7 @@ local function picker(opts)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
-        tla_actions[selection[1]]()
+        tla_actions[selection[1]](visual_selection)
       end)
       return true
     end,

@@ -55,16 +55,28 @@ end
 ---@param bufnr number
 ---@param lines string[]
 M.append_to_buf = function(bufnr, lines)
-	vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, lines)
+  vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, lines)
   local line_count = vim.api.nvim_buf_line_count(bufnr)
   local windows = vim.fn.win_findbuf(bufnr)
   for _, window in pairs(windows) do
-    vim.api.nvim_win_set_cursor(window, {line_count, 0})
+    vim.api.nvim_win_set_cursor(window, { line_count, 0 })
   end
 end
 
 M.clear_buf = function(bufnr)
-	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {})
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {})
+end
+
+---@return string[]
+M.get_visual_selection = function()
+  local mode = vim.api.nvim_get_mode().mode
+  if mode ~= "v" or mode ~= "V" then
+    return {}
+  end
+  local start_pos = vim.fn.getpos('v')
+  local end_pos = vim.fn.getpos(".")
+
+  return vim.fn.getregion(start_pos, end_pos)
 end
 
 ---@return string?

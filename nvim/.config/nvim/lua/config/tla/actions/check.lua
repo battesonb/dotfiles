@@ -42,8 +42,6 @@ return function()
         args = args,
         on_stdout = on_result,
         on_error = on_result,
-        on_exit = vim.schedule_wrap(function(self, code, signal)
-        end)
       })
       :start()
 end

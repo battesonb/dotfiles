@@ -28,5 +28,9 @@ M.setup = function(user_config)
 end
 
 M.picker = require('config.tla.picker')
+M.evaluate_expression = function()
+  local visual_selection = utils.get_visual_selection()
+  require('config.tla.actions.evaluate_expression')(visual_selection)
+end
 
 return M
