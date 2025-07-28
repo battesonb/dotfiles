@@ -69,12 +69,19 @@ end
 
 ---@return string[]
 M.get_visual_selection = function()
-  local mode = vim.api.nvim_get_mode().mode
-  if mode ~= "v" or mode ~= "V" then
+  local mode = vim.fn.mode()
+  if mode ~= "v" and mode ~= "V" then
     return {}
   end
-  local start_pos = vim.fn.getpos('v')
+  local start_pos = vim.fn.getpos("v")
   local end_pos = vim.fn.getpos(".")
+
+  if mode == "V" then
+    local start_line = vim.fn.strlen(vim.fn.getline(start_pos[2]))
+    local end_line = vim.fn.strlen(vim.fn.getline(end_pos[2]))
+    start_pos[3] = start_pos[2] <= end_pos[2] and 1 or start_line
+    end_pos[3] = end_pos[2] < start_pos[2] and 1 or end_line
+  end
 
   return vim.fn.getregion(start_pos, end_pos)
 end
