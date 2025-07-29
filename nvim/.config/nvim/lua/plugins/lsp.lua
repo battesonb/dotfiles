@@ -14,15 +14,6 @@ return {
           masonlspconfig.setup({
             automatic_installation = true,
           })
-
-          masonlspconfig.setup_handlers({
-            function(server_name)
-              local config = {
-                capabilities = require("cmp_nvim_lsp").default_capabilities()
-              }
-              require("lspconfig")[server_name].setup(config)
-            end,
-          })
         end
       },
       {
@@ -83,13 +74,11 @@ return {
       },
     },
     config = function(_, opts)
-      local lspconfig = require("lspconfig")
-
       vim.lsp.inlay_hint.enable()
 
       for server, config in pairs(opts.servers) do
         config.capabilities = require("cmp_nvim_lsp").default_capabilities()
-        lspconfig[server].setup(config)
+        vim.lsp.config(server, config)
       end
 
       if vim.diagnostic.jump then
