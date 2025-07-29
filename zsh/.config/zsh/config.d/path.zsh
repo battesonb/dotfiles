@@ -1,7 +1,5 @@
 # Responsible for amending the environment path variable with required paths
 
-export EDITOR=nvim
-
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/lib/dart/bin:$PATH"

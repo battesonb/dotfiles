@@ -4,3 +4,6 @@ bindkey -e
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 bindkey '^R' history-incremental-search-backward
+
+export EDITOR=nvim
+export MANPAGER='nvim +Man!'
