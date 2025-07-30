@@ -3,7 +3,8 @@ local M = {}
 ---@param s string
 ---@return string
 M.trim = function(s)
-  return s:gsub("^%s+", ""):gsub("%s+$", "")
+  local res = s:gsub("^%s+", ""):gsub("%s+$", "")
+  return res
 end
 
 return M

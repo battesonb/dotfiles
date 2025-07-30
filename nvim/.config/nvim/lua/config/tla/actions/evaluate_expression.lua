@@ -5,7 +5,10 @@ local config = require('config.tla.config')
 
 ---@param selection string[]
 return function(selection)
-  local expression = vim.fn.input("Expression: ", #selection == 0 and "" or selection[1])
+  local default_expression = table.concat(vim.iter(selection):map(function(value)
+    return strings.trim(value)
+  end):totable(), " ")
+  local expression = vim.fn.input("Expression: ", default_expression)
   expression = strings.trim(expression)
 
   if #expression == 0 then
