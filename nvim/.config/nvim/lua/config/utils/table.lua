@@ -19,7 +19,7 @@ end
 --- Concatenates a variable number of tables together
 ---@return table
 M.concat = function(...)
-  return vim.iter({ ... }):flatten()
+  return vim.iter({ ... }):flatten():totable()
 end
 
 return M
