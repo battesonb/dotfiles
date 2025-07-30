@@ -12,7 +12,9 @@ local file_name = utils.file_name
 local prefix_keywords = {
   "ASSUME",
   "CONSTANT",
+  "DOMAIN",
   "ENABLED",
+  "EXCEPT",
   "EXTENDS",
   "IN",
   "INSTANCE",
@@ -85,6 +87,26 @@ local mappings = {
   {
     trig = "not",
     content = "~",
+  },
+  {
+    trig = "in",
+    content = "\\in",
+  },
+  {
+    trig = "notin",
+    content = "\\notin",
+  },
+  {
+    trig = "subseteq",
+    content = "\\subseteq",
+  },
+  {
+    trig = "exists",
+    content = "\\E",
+  },
+  {
+    trig = "forall",
+    content = "\\A",
   },
 }
 
@@ -183,6 +205,24 @@ ls.add_snippets("tla", tbl.concat({
       t "while ", i(1, "condition"), t " do", nl(),
       t "\t", i(2, "skip;"), nl(),
       t "end while;",
+    }),
+    s("setfilter", {
+      t "{", i(1, "x"), t " \\in ", i(2, "S"), t ": ", i(3, "P(x)"), t "}",
+    }),
+    s("setmap", {
+      t "{", i(1, "e"), t ": ", i(2, "x"), t " \\in ", i(3, "S"), t "}",
+    }),
+    s("function", {
+      t "[", i(1, "x"), t " \\in ", i(2, "S"), t " |-> ", i(3, "e"), t "]",
+    }),
+    s("functionset", {
+      t "[", i(1, "S"), t " -> ", i(2, "T"), t "]",
+    }),
+    s("record", {
+      t "[", i(1, "x"), t " |-> ", i(2, "e"), t "]",
+    }),
+    s("recordset", {
+      t "[", i(1, "x"), t ": ", i(2, "S"), t "]",
     }),
   },
   vim.iter(keywords):map(function(value)
