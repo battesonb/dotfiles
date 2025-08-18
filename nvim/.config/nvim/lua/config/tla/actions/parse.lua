@@ -1,4 +1,5 @@
 local Job = require("plenary.job")
+local Path = require("plenary.path")
 local utils = require('config.tla.utils')
 local config = require('config.tla.config')
 local Table = require('config.utils.table')
@@ -29,10 +30,12 @@ return function()
     end
   end)
 
+  local parent_dir = Path:new(tla_file_path):parent().filename
   Job
       :new({
         command = command,
         args = args,
+        cwd = parent_dir,
         on_stdout = on_result,
         on_error = on_result,
         on_exit = vim.schedule_wrap(function(self, code, signal)

@@ -1,4 +1,5 @@
 local Job = require("plenary.job")
+local Path = require("plenary.path")
 local utils = require('config.tla.utils')
 local config = require('config.tla.config')
 
@@ -18,6 +19,9 @@ return function()
     "-cp",
     config.tla2tools,
     "tlc2.TLC",
+    "-dumpTrace",
+    "json",
+    "trace.json",
     "-config",
     cfg_file_path,
     tla_file_path,
@@ -36,10 +40,12 @@ return function()
     end
   end)
 
+  local parent_dir = Path:new(tla_file_path):parent().filename
   Job
       :new({
         command = command,
         args = args,
+        cwd = parent_dir,
         on_stdout = on_result,
         on_error = on_result,
       })

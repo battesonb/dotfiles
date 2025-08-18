@@ -224,6 +224,9 @@ ls.add_snippets("tla", tbl.concat({
     s("recordset", {
       t "[", i(1, "x"), t ": ", i(2, "S"), t "]",
     }),
+    s("choose", {
+      t "CHOOSE ", i(1, "x"), t " \\in ", i(2, "S"), t ": ", i(3, "P(x)"),
+    }),
   },
   vim.iter(keywords):map(function(value)
     return s(value, {
