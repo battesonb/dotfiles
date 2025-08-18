@@ -1,5 +1,6 @@
 return {
   "olimorris/codecompanion.nvim",
+  lazy = true,
   config = function()
     local codecompanion = require("codecompanion")
 
