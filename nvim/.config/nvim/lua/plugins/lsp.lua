@@ -36,7 +36,14 @@ return {
           }
         },
         gopls = {},
-        jdtls = {},
+        jdtls = {
+          cmd = {
+            "jdtls",
+            ("-configuration:%s"):format("$HOME/runner/.cache/jdtls/config"),
+            ("-data:%s"):format("$HOME/runner/.cache/jdtls/workspace"),
+            ("--jvm-args=-javaagent:%s"):format("$HOME/.local/share/nvim/mason/packages/jdtls/lombok.jar"),
+          },
+        },
         lua_ls = {},
         marksman = {},
         pylsp = {},
