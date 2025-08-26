@@ -7,11 +7,29 @@ return {
       local ls = require("luasnip")
       local lua = require("luasnip.loaders.from_lua")
 
+      local extensions = {
+        wiki = "xwiki",
+      }
+
       ls.setup({
         enable_autosnippets = true,
+        history = true,
+        updateevents = "TextChanged,TextChangedI",
+        ft_func = function()
+          local name = vim.api.nvim_buf_get_name(0)
+          local pieces = vim.split(name, '/')
+          name = pieces[#pieces]
+          local exts = vim.split(name, '.', { plain = true })
+          table.remove(exts, 1)
+          local filetypes = vim.list_extend(vim.split(vim.bo.filetype, ".", { plain = true }), exts)
+          for key, value in pairs(extensions) do
+            if vim.tbl_contains(filetypes, key) then
+              vim.list_extend(filetypes, { value })
+            end
+          end
+          return filetypes
+        end
       })
-
-      ls.config.set_config({ history = true, updateevents = "TextChanged,TextChangedI" })
 
       lua.load({ paths = { vim.fn.stdpath("config") .. "/snippets/" } })
 
