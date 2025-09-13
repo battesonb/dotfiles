@@ -5,18 +5,6 @@ return {
     dependencies = {
       "hrsh7th/nvim-cmp",
       {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = {
-          "williamboman/mason.nvim",
-        },
-        config = function()
-          local masonlspconfig = require("mason-lspconfig")
-          masonlspconfig.setup({
-            automatic_installation = true,
-          })
-        end
-      },
-      {
         "folke/lazydev.nvim",
         ft = "lua",
         opts = {
@@ -125,5 +113,16 @@ return {
       keymap.keymap_del_unconditional("gra", "n")
       keymap.keymap_del_unconditional("grn", "n")
     end
-  }
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      local masonlspconfig = require("mason-lspconfig")
+      masonlspconfig.setup({})
+    end
+  },
 }
