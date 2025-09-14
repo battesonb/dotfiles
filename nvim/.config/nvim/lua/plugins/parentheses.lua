@@ -30,6 +30,10 @@ return {
           ["'"] = { disabled_filetypes = { "lisp", "rust" } },
           ["`"] = { disabled_filetypes = { "lisp" } },
         },
+        options = {
+          disable_command_mode = true,
+          disabled_filetypes = { "TelescopePrompt" },
+        },
       })
     end
   }
