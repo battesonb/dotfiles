@@ -104,7 +104,24 @@ return {
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
       end)
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-      vim.keymap.set({ "n", "v" }, "<leader>rf", vim.lsp.buf.format)
+      vim.keymap.set({ "n", "v" }, "<leader>rf", function()
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
+        local formatting_supported = vim.iter(clients):any(function(client)
+          return client.server_capabilities.documentFormattingProvider
+        end)
+        if formatting_supported then
+          vim.lsp.buf.format()
+        else
+          local mode = vim.fn.mode()
+          if mode == "v" or mode == "V" then
+            vim.cmd("normal! =")
+          else
+            local save_view = vim.fn.winsaveview()
+            vim.cmd("normal! gg=G")
+            vim.fn.winrestview(save_view)
+          end
+        end
+      end)
 
       -- I didn't know there are new defaults, and I'm too stubborn to change my ways right now!
       local keymap = require("config.utils.keymap")
