@@ -3,8 +3,10 @@ let mapleader=" "
 
 set relativenumber number
 set idearefactormode=keep
+set clipboard+=unnamed,unnamedplus
 
 Plug 'tpope/vim-surround'
+Plug 'chrisbra/matchit'
 
 " Shortcuts for IntelliJ actions
 nnoremap <silent> gd :action GotoDeclaration<CR>
@@ -16,15 +18,18 @@ nnoremap <silent> ]g :action GotoNextError<CR>
 # Consider Switcher and SearchEverywhere
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fg :action FindInPath<CR>
+
+nnoremap <leader>re :action RefactoringMenu<CR>
+vnoremap <leader>re :action Refactorings.QuickListPopupAction<CR>
+command! -nargs=0 Format :action ReformatCode
+nnoremap <leader>rf :action ReformatCode<CR>
 nnoremap <leader>rn :action RenameElement<CR>
+
 vnoremap <leader>ca :action ShowIntentionActions<CR>
 nnoremap <leader>ca :action ShowIntentionActions<CR>
-vnoremap <leader>re :action Refactorings.QuickListPopupAction<CR>
-nnoremap <leader>re :action RefactoringMenu<CR>
+
 # Show any documentation (not just Java)
 nnoremap <silent> K :action QuickJavaDoc<CR>
-command! -nargs=0 Format :action ReformatCode
-nnoremap <leader>cf :action ReformatCode<CR>
 
 # Folds
 nnoremap zC :action CollapseRegionRecursively<CR>
