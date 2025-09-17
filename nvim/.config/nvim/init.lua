@@ -19,11 +19,11 @@ vim.o.listchars = table.concat({
   "eol:↩"
 }, ",")
 
-vim.o.hlsearch = false          -- don't highlight searches
-vim.o.incsearch = true          -- incremental search only
-vim.o.ic = true                 -- ignore case sensitive searching
-vim.o.smartcase = true          -- unless there is a capital letter in the search
-vim.o.clipboard = "unnamedplus" -- copy to real clipboard
+vim.o.hlsearch = false                  -- don't highlight searches
+vim.o.incsearch = true                  -- incremental search only
+vim.o.ic = true                         -- ignore case sensitive searching
+vim.o.smartcase = true                  -- unless there is a capital letter in the search
+vim.o.clipboard = "unnamed,unnamedplus" -- copy to real clipboard
 
 local undo_breakpoints = { ",", ".", "!", "?" }
 for i = 1, #undo_breakpoints do
