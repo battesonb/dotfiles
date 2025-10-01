@@ -31,6 +31,11 @@ return {
             ("-data:%s"):format("$HOME/runner/.cache/jdtls/workspace"),
             ("--jvm-args=-javaagent:%s"):format("$HOME/.local/share/nvim/mason/packages/jdtls/lombok.jar"),
           },
+          capabilities = {
+            workspace = {
+              configuration = true,
+            },
+          },
         },
         lua_ls = {},
         marksman = {},
