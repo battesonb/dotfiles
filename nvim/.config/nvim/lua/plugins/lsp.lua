@@ -36,6 +36,19 @@ return {
               configuration = true,
             },
           },
+          settings = {
+            java = {
+              references = {
+                includeDecompiledSources = true,
+              },
+              sources = {
+                organizeImports = {
+                  starThreshold = 9999,
+                  staticStarThreshold = 9999,
+                },
+              },
+            },
+          },
         },
         lua_ls = {},
         marksman = {},
