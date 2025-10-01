@@ -1,6 +1,7 @@
 nnoremap <space> <nop>
 let mapleader=" "
 
+set ignorecase smartcase
 set relativenumber number
 set idearefactormode=keep
 set clipboard+=unnamed,unnamedplus
@@ -15,7 +16,7 @@ nnoremap <silent> gi :action GotoImplementation<CR>
 nnoremap <silent> gr :action FindUsages<CR>
 nnoremap <silent> [g :action GotoPreviousError<CR>
 nnoremap <silent> ]g :action GotoNextError<CR>
-# Consider Switcher and SearchEverywhere
+" Consider Switcher and SearchEverywhere
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fg :action FindInPath<CR>
 
@@ -23,14 +24,28 @@ nnoremap <leader>re :action RefactoringMenu<CR>
 vnoremap <leader>re :action Refactorings.QuickListPopupAction<CR>
 command! -nargs=0 Format :action ReformatCode
 nnoremap <leader>rf :action ReformatCode<CR>
+nnoremap <leader>rg :action Generate<CR>
 nnoremap <leader>rn :action RenameElement<CR>
 
 vnoremap <leader>ca :action ShowIntentionActions<CR>
 nnoremap <leader>ca :action ShowIntentionActions<CR>
 
-# Show any documentation (not just Java)
+" Debbuger shortcuts
+nnoremap <leader>dd :action ChooseDebugConfiguration<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <leader>dp :action RunToCursor<CR>
+nnoremap <leader>dw :action Debugger.AddToWatch<CR>
+nnoremap <leader>de :action EvaluateExpression<CR>
+nnoremap <leader>dr :action Debug<CR>
+nnoremap <leader>dr :action Stop<CR>
+nnoremap <leader>dc :action Resume<CR>
+nnoremap <leader>dj :action StepInto<CR>
+nnoremap <leader>dk :action StepOut<CR>
+nnoremap <leader>dl :action StepOver<CR>
+
+" Show any documentation (not just Java)
 nnoremap <silent> K :action QuickJavaDoc<CR>
 
-# Folds
+" Folds
 nnoremap zC :action CollapseRegionRecursively<CR>
 nnoremap zO :action ExpandRegionRecursively<CR>
