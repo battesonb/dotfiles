@@ -3,7 +3,6 @@ return {
     "neovim/nvim-lspconfig",
     priority = 250,
     dependencies = {
-      "hrsh7th/nvim-cmp",
       {
         "folke/lazydev.nvim",
         ft = "lua",
@@ -90,7 +89,6 @@ return {
       vim.lsp.inlay_hint.enable()
 
       for server, config in pairs(opts.servers) do
-        config.capabilities = require("cmp_nvim_lsp").default_capabilities()
         vim.lsp.config(server, config)
       end
 

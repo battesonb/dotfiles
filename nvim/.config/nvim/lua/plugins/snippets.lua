@@ -33,8 +33,8 @@ return {
 
       lua.load({ paths = { vim.fn.stdpath("config") .. "/snippets/" } })
 
-      vim.keymap.set({ "i", "s" }, "<C-j>", function() ls.jump(1) end)
-      vim.keymap.set({ "i", "s" }, "<C-k>", function() ls.jump(-1) end)
+      vim.keymap.set({ "i", "s" }, "<Tab>", function() ls.jump(1) end)
+      vim.keymap.set({ "i", "s" }, "<S-Tab>", function() ls.jump(-1) end)
       vim.keymap.set({ "i", "s" }, "<C-n>", function()
         if ls.choice_active() then
           ls.change_choice(1)
