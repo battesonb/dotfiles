@@ -1,0 +1,17 @@
+.\#*
+\#*\#
+auto-save-list/
+auto-saves/
+backup/
+
+# Emacs Lisp native
+eln-cache/
+
+# Elpa packages
+elpa/
+
+# Ido
+ido.last
+
+# Multiple cursors
+.mc-lists.el
