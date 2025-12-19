@@ -7,6 +7,7 @@ vim.o.number = true         -- enable line numbers
 vim.o.relativenumber = true -- enable relative line numbers
 vim.o.showmatch = true      -- showing matching parentheses
 
+vim.o.cmdheight = 2         -- show notifications in INSERT mode
 vim.o.tabstop = 2           -- number of visual spaces per tab
 vim.o.softtabstop = 2       -- number of spaces in tab when editing
 vim.o.expandtab = true      -- tabs are spaces

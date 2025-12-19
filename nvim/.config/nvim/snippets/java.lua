@@ -16,6 +16,12 @@ local function package_name(_, _)
   local filepath = vim.fn.expand("%:p")
   local parts = vim.split(filepath, "/")
   local idx = vim.fn.index(parts, "java")
+  if idx == -1 then
+    idx = vim.fn.index(parts, "src")
+  end
+  if idx == -1 then
+    idx = vim.fn.index(parts, "tst")
+  end
   local suggested_package = "org.example"
   if idx ~= -1 and idx + 1 < #parts then
     local pkg_parts = vim.list_slice(parts, idx + 2, #parts - 1)

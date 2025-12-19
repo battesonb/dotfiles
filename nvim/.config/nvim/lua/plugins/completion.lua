@@ -10,9 +10,26 @@ return {
     opts = {
       keymap = {
         preset = "default",
-        -- Let LuaSnip control this
-        ["<Tab>"] = false,
-        ["<S-Tab>"] = false,
+        ["<Tab>"] = {
+          function()
+            local ls = require("luasnip")
+            if ls.expand_or_jumpable() then
+              ls.jump(1)
+              return true
+            end
+          end,
+          "fallback",
+        },
+        ["<S-Tab>"] = {
+          function()
+            local ls = require("luasnip")
+            if ls.expand_or_jumpable() then
+              ls.jump(-1)
+              return true
+            end
+          end,
+          "fallback",
+        },
       },
       completion = {
         documentation = {
@@ -30,12 +47,15 @@ return {
       signature = { enabled = true },
       snippets = {
         preset = "luasnip",
-        should_show_items = function()
-          return not require("blink.cmp").snippet_active()
-        end,
       },
       sources = {
         default = { "snippets", "lsp", "path", "buffer" },
+        providers = {
+          lsp = {
+            async = true,
+            timeout_ms = 200,
+          },
+        },
       },
       fuzzy = {
         implementation = "prefer_rust_with_warning",
