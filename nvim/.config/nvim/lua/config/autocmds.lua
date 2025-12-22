@@ -22,6 +22,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  desc = "Conditionally disable spell check",
+  group = vim.api.nvim_create_augroup("spell-check-disable", { clear = true }),
+  callback = function()
+    if vim.o.buftype == "terminal" then
+      vim.o.spell = false
+    end
+  end
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   desc = "Set scripting language keymap",
   group = vim.api.nvim_create_augroup("scripting-keymap", { clear = true }),
   callback = function()
