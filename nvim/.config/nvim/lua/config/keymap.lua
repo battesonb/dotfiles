@@ -17,8 +17,10 @@ vim.keymap.set({ "i", "s" }, "<C-l>", function()
   vim.api.nvim_feedkeys(keys, "n", false)
 end)
 
--- Command line editing (see cmdline.txt)
+-- Command line editing (see cmdline.txt), or press <C-f>!
 vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("c", "<C-e>", "<End>")
-vim.keymap.set("c", "<C-b>", "<Left>")
-vim.keymap.set("c", "<C-f>", "<Right>")
+vim.keymap.set("c", "<C-S-6>", "<Home>") -- or <C-^>
+vim.keymap.set("c", "<C-S-4>", "<End>")  -- or <C-$>
+vim.keymap.set("c", "<C-b>", "<S-Left>")
+vim.keymap.set("c", "<C-e>", "<S-Right>")

@@ -1,8 +1,3 @@
-local pickers = require("telescope.pickers")
-local finders = require("telescope.finders")
-local make_entry = require("telescope.make_entry")
-local conf = require('telescope.config').values
-
 local M = {}
 
 local file_ignore_patterns = {
@@ -13,6 +8,11 @@ local file_ignore_patterns = {
 }
 
 M.focus_live_grep = function(opts)
+  local pickers = require("telescope.pickers")
+  local finders = require("telescope.finders")
+  local make_entry = require("telescope.make_entry")
+  local conf = require('telescope.config').values
+
   opts = opts or {}
   opts.cwd = opts.cwd or vim.uv.cwd()
 

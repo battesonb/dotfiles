@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight copied text",
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end
 })
 
@@ -21,8 +21,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- This does not configure Lua as it is supported in-editor. See after/ftplugin/lua.lua for that
--- configuration.
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   desc = "Set scripting language keymap",
   group = vim.api.nvim_create_augroup("scripting-keymap", { clear = true }),
@@ -36,8 +34,29 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     }
     local command = commands[vim.o.filetype]
     if command then
-      vim.keymap.set("n", "<leader>cx", ":!" .. command .. " %<CR>")
-      vim.keymap.set({ "n", "v" }, "<leader>x", ":.w !" .. command .. "<CR>")
+      vim.keymap.set("n", "<leader>cx", ":!" .. command .. " %<CR>", { buffer = true })
+      vim.keymap.set({ "n", "v" }, "<leader>x", ":.w !" .. command .. "<CR>", { buffer = true })
+      vim.keymap.set("n", "<leader><leader>x", function()
+        vim.notify("Cannot source file, only Lua supported", vim.log.levels.ERROR)
+      end, { buffer = true })
+    elseif vim.o.filetype == "lua" then
+      vim.keymap.set("n", "<leader>cx", ":!lua %<CR>", { buffer = true })
+      vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { buffer = true })
+      vim.keymap.set("n", "<leader>x", ":.lua<CR>", { buffer = true })
+      vim.keymap.set("v", "<leader>x", ":lua<CR>", { buffer = true })
+    else
+      vim.keymap.set("n", "<leader>cx", function()
+        vim.notify("Cannot execute file", vim.log.levels.ERROR)
+      end, { buffer = true })
+      vim.keymap.set("n", "<leader><leader>x", function()
+        vim.notify("Cannot source file, only Lua supported", vim.log.levels.ERROR)
+      end, { buffer = true })
+      vim.keymap.set("n", "<leader>x", function()
+        vim.notify("Cannot execute line", vim.log.levels.ERROR)
+      end, { buffer = true })
+      vim.keymap.set("v", "<leader>x", function()
+        vim.notify("Cannot execute selection", vim.log.levels.ERROR)
+      end, { buffer = true })
     end
   end
 })

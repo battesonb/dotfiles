@@ -1,8 +1,10 @@
+require("config.options")
 require("config.autocmds")
 require("config.behavior")
 require("config.keymap")
 
-local nvim_overrides = vim.fn.expand("~/.config/nvim/lua/config/overrides.lua")
-if vim.fn.filereadable(nvim_overrides) == 1 then
-  require("config.overrides")
-end
+-- Require lazy.nvim last
+require("config.lazy")
+
+-- Replace theme spelling error highlight with more muted yellow/orange.
+vim.api.nvim_set_hl(0, "SpellBad", { sp = "#c4a262", undercurl = true })
