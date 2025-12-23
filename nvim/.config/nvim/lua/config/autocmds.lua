@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   end
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "FileType" }, {
   desc = "Set scripting language keymap",
   group = vim.api.nvim_create_augroup("scripting-keymap", { clear = true }),
   callback = function()
