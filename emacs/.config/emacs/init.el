@@ -20,18 +20,24 @@
 (set-face-attribute 'default nil :height 180)
 
 ;; Add "Interactive Do" package for common completions
-(require 'ido)
-(setq ido-enable-flex-matching t)
-(ido-mode t)
+(use-package ido
+  :ensure t
+  :config
+  (setq ido-enable-flex-matching t)
+  (ido-mode t))
 
-;; Replace M-x (execute-extended-command) with smex, if installed.
-(if (featurep 'smex)
-    (global-set-key (kbd "M-x") 'smex))
+;; Replace M-x (execute-extended-command) with smex.
+(use-package smex
+  :ensure t
+  :config
+  (global-set-key (kbd "M-x") 'smex))
 
 ;; Multiple cursors
-(require 'multiple-cursors)
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
