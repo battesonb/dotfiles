@@ -31,6 +31,7 @@ return {
           ["`"] = { disabled_filetypes = { "lisp" } },
         },
         options = {
+          disable_when_touch = true,
           disable_command_mode = true,
           disabled_filetypes = { "TelescopePrompt" },
         },
