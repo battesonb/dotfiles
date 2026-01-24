@@ -22,20 +22,4 @@ return {
       })
     end
   },
-  {
-    "m4xshen/autoclose.nvim",
-    config = function()
-      require("autoclose").setup({
-        keys = {
-          ["'"] = { disabled_filetypes = { "lisp", "rust" } },
-          ["`"] = { disabled_filetypes = { "lisp" } },
-        },
-        options = {
-          disable_when_touch = true,
-          disable_command_mode = true,
-          disabled_filetypes = { "TelescopePrompt" },
-        },
-      })
-    end
-  }
 }
