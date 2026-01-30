@@ -54,6 +54,7 @@ return {
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find file" })
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
       vim.keymap.set("n", "<leader>fm", builtin.man_pages, { desc = "Find man pages" })
+      vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find symbols" })
       vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "Find treesitter" })
 
       -- Meta
