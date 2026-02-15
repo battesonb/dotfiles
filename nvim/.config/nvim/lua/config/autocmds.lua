@@ -21,13 +21,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  desc = "Conditionally disable spell check",
-  group = vim.api.nvim_create_augroup("spell-check-disable", { clear = true }),
+vim.api.nvim_create_autocmd("TermOpen", {
+  desc = "Terminal config",
+  group = vim.api.nvim_create_augroup("terminal-config", { clear = true }),
   callback = function()
-    if vim.o.buftype == "terminal" then
-      vim.o.spell = false
-    end
+    vim.o.spell = false
   end
 })
 
