@@ -35,8 +35,18 @@ return {
               configuration = true,
             },
           },
+          root_dir = vim.fs.root(0, { "gradlew", ".git", "mvnw" }),
           settings = {
             java = {
+              imports = {
+                gradle = {
+                  enabled = true,
+                  wrapper = {
+                    enabled = true,
+                    checksums = require("config.utils.path").load_module("~/.config/nvim/lua/plugins/lsp/gradlewrappers.lua")
+                  },
+                },
+              },
               references = {
                 includeDecompiledSources = true,
               },
@@ -114,7 +124,7 @@ return {
       vim.keymap.set("n", "gr", vim.lsp.buf.references)
       vim.keymap.set("n", "gs", vim.lsp.buf.document_symbol)
       vim.keymap.set("n", "K", vim.lsp.buf.hover)
-      vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+      vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help)
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
       vim.keymap.set("n", "<leader>ci", function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
