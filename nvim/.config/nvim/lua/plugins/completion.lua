@@ -10,6 +10,7 @@ return {
     opts = {
       keymap = {
         preset = "default",
+        ["<C-k>"] = false, -- Don't clobber digraph default
         ["<Tab>"] = {
           function()
             local ls = require("luasnip")
