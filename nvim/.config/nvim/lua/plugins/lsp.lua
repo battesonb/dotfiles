@@ -59,7 +59,19 @@ return {
             },
           },
         },
-        lua_ls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = false,
+                telemetry = { enable = false },
+                library = {
+                  "${3rd}/love2d/library"
+                },
+              },
+            },
+          },
+        },
         marksman = {},
         pylsp = {},
         rust_analyzer = {
