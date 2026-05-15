@@ -2,20 +2,11 @@ return {
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "lewis6991/async.nvim",
     },
     lazy = false,
     opts = {},
     init = function()
-      require("telescope").load_extension("refactoring")
-
-      vim.keymap.set(
-        { "n", "x" },
-        "<leader>rr",
-        function() require("telescope").extensions.refactoring.refactors() end
-      )
-
       local map = {
         ["Extract Block"] = "<leader>rbe",
         ["Extract Block To File"] = "<leader>rbfe",

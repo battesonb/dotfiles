@@ -45,7 +45,9 @@ return {
           },
         },
       },
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+      },
       snippets = {
         preset = "luasnip",
       },
@@ -61,6 +63,6 @@ return {
       fuzzy = {
         implementation = "prefer_rust_with_warning",
       },
-    }
+    },
   },
 }
