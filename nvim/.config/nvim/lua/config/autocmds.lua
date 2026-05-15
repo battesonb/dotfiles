@@ -6,6 +6,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
+  pattern = "*.p",
+  desc = "Set P file type",
+  group = vim.api.nvim_create_augroup("p-filetype", { clear = true }),
+  callback = function()
+    vim.bo.filetype = "p"
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufReadPost", {
   desc = "Set filetype from shebang",
   group = vim.api.nvim_create_augroup("filetype-shebang", { clear = true }),

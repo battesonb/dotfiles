@@ -3,6 +3,17 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
+      local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+      parser_config.p = {
+        install_info = {
+          url = "https://github.com/battesonb/tree-sitter-p",
+          branch = "main",
+          files = { "src/parser.c" },
+          queries = 'queries',
+        },
+        filetype = "p",
+      }
+
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
