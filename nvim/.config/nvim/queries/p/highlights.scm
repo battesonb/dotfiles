@@ -76,7 +76,6 @@
  "assert"
  "break"
  "case"
- "cold"
  "continue"
  "default"
  "defer"
@@ -86,7 +85,6 @@
  "foreach"
  "goto"
  "halt"
- "hot"
  "ignore"
  "in"
  "new"
@@ -144,6 +142,8 @@
  ; common keywords
  "creates"
  "to"
+ (temperature_hot)
+ (temperature_cold)
  (null_literal)
  ] @keyword
 
