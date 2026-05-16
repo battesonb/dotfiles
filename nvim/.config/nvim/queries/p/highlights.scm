@@ -218,3 +218,5 @@
  "("
  ")"
  ] @punctuation.bracket
+
+(ERROR) @error
