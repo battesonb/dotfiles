@@ -4,6 +4,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/lib/dart/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Haskell (ghcup)
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
