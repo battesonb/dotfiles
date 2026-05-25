@@ -24,5 +24,5 @@ fi
 
 # Activate mise, if present
 if [ $+commands[mise] ]; then
-  eval "$($(whereis -b mise | cut -d' ' -f2) activate bash)"
+  eval "$($(whereis -b mise | cut -d' ' -f2) activate zsh)"
 fi
