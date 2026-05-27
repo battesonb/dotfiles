@@ -50,7 +50,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "FileType" }, {
       ruby = "ruby",
     }
     local command = commands[vim.o.filetype]
-    if command then
+    if require("molten.status").initialized() then
+      return
+    elseif command then
       vim.keymap.set("n", "<leader>cx", ":!" .. command .. " %<CR>", { buffer = true })
       vim.keymap.set({ "n", "v" }, "<leader>x", ":.w !" .. command .. "<CR>", { buffer = true })
       vim.keymap.set("n", "<leader><leader>x", function()
