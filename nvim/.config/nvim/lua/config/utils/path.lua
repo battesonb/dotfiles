@@ -15,4 +15,13 @@ M.load_module = function(path)
   end
 end
 
+---Returns either the `require` of a module or an empty table.
+---@param module string
+---@return table
+function M.require_optional(module)
+  local ok, mod = pcall(require, module)
+  if not ok then return {} end
+  return mod
+end
+
 return M
