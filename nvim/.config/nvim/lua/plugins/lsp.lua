@@ -78,6 +78,7 @@ return {
           settings = {
             ['rust-analyzer'] = {
               cargo = {
+                cfgs = require("plugins.lsp.rust").project_cfg(),
                 features = require("plugins.lsp.rust").project_features(),
               }
             }
@@ -95,7 +96,6 @@ return {
             "typescriptreact",
             "rust",
           },
-          root_dir = require("plugins.lsp.tailwind").root_dir,
           settings = {
             tailwindCSS = {
               includeLanguages = {

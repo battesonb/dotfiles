@@ -10,4 +10,12 @@ M.project_features = function()
   end):totable()
 end
 
+M.project_cfg = function()
+  local project_features_env = os.getenv("RUST_LSP_CFG") or ""
+  local features = vim.split(project_features_env, ",")
+  return vim.iter(features):filter(function(f)
+    return f ~= ""
+  end):totable()
+end
+
 return M
