@@ -29,7 +29,7 @@ function shell_level() {
 }
 
 setopt PROMPT_SUBST
-RPROMPT=""
-PROMPT="%(?.%F{green}✓.%F{red}[%?])%f %F{240}[$(hostname)$(shell_level)]%f %F{cyan}%~%f$(git_statusline)
-λ "
+RPROMPT=''
+PROMPT='%(?.%F{green}✓.%F{red}[%?])%f %F{240}[$(hostname)$(shell_level)]%f %F{cyan}%~%f$(git_statusline)
+λ '
 
