@@ -1,1 +1,1 @@
-vim.o.textwidth = 99999
+vim.opt_local.textwidth = 99999
