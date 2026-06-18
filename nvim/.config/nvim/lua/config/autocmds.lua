@@ -17,6 +17,15 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
+  pattern = "*.xwiki",
+  desc = "Set xwiki file type",
+  group = vim.api.nvim_create_augroup("xwiki-filetype", { clear = true }),
+  callback = function()
+    vim.bo.filetype = "xwiki"
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufReadPost", {
   desc = "Set filetype from shebang",
   group = vim.api.nvim_create_augroup("filetype-shebang", { clear = true }),

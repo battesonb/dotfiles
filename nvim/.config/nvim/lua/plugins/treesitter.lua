@@ -3,19 +3,15 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      local config = require("nvim-treesitter.config")
-      config.setup({
-        modules = {},
-        sync_install = false,
-        auto_install = true,
-        ignore_install = {},
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = {
-          enable = true,
-        },
+      require("nvim-treesitter.config").setup({})
+
+      vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
+        callback = function()
+          local installed = require("nvim-treesitter").get_installed()
+          if vim.tbl_contains(installed, vim.bo.filetype) then
+            vim.treesitter.start()
+          end
+        end,
       })
 
       vim.api.nvim_create_autocmd("User", {
@@ -29,6 +25,15 @@ return {
               queries = 'queries',
             },
             filetype = "p",
+          }
+          require("nvim-treesitter.parsers").xwiki = {
+            install_info = {
+              url = "https://github.com/battesonb/tree-sitter-xwiki",
+              branch = "main",
+              files = { "src/parser.c" },
+              queries = "queries/neovim",
+            },
+            filetype = "xwiki",
           }
         end
       })
