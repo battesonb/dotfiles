@@ -20,6 +20,7 @@ return {
           git_commits = {},
           find_files = {
             file_ignore_patterns = { "^node_modules$", "^.git$", ".class$", "^.gradle$" },
+            follow = true,
             hidden = true,
             mappings = {
               n = {

@@ -47,6 +47,7 @@ M.focus_live_grep = function(opts)
       return vim.iter({
         args,
         {
+          "--follow",
           "--color=never",
           "--no-heading",
           "--with-filename",
