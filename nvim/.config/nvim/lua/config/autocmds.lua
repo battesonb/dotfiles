@@ -33,6 +33,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     if not filetype then
       filetype = first_line:match("^#!.*/(%w+)")
     end
+    -- Classic python
+    if filetype == "python3" then
+      filetype = "python"
+    end
     if filetype then
       vim.bo.filetype = filetype
     end
