@@ -1,5 +1,3 @@
-local path = require("config.utils.path")
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight copied text",
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
@@ -61,7 +59,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "FileType" }, {
       ruby = "ruby",
     }
     local command = commands[vim.o.filetype]
-    if path.require_optional("molten.status").initialized() then
+    if vim.fn.exists(":MoltenStatusLineInit") > 0 and require("molten.status").initialized() then
       return
     elseif command then
       vim.keymap.set("n", "<leader>cx", ":!" .. command .. " %<CR>", { buffer = true })
