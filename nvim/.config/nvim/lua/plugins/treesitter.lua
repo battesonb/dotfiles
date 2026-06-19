@@ -22,7 +22,7 @@ return {
               url = "https://github.com/battesonb/tree-sitter-p",
               branch = "main",
               files = { "src/parser.c" },
-              queries = 'queries',
+              queries = "queries/neovim",
             },
             filetype = "p",
           }
